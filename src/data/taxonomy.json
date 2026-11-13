@@ -1,0 +1,249 @@
+{
+  "domains": [
+    {
+      "id": "about-org",
+      "name": "Institutional Identity & Governance",
+      "description": "College overview, academic departments/units, leadership, directory, diversity, and contact."
+    },
+    {
+      "id": "recruitment-admissions",
+      "name": "Admissions & Student Recruitment",
+      "description": "Prospective student entry points, applications, campus visits, transfer pathways, and admissions FAQs."
+    },
+    {
+      "id": "academics-curricula",
+      "name": "Academics & Curricula",
+      "description": "Majors/minors, course offerings, general education, academic policies/forms, graduation, and online programs."
+    },
+    {
+      "id": "student-experience",
+      "name": "Advising, Career & Student Experience",
+      "description": "Academic advising, career readiness, internships, honors/scholarships, study abroad, and first-year support."
+    },
+    {
+      "id": "research-impact",
+      "name": "Research & Public Impact",
+      "description": "Faculty research expertise, centers/institutes, student research opportunities, and public engagement."
+    },
+    {
+      "id": "news-events",
+      "name": "News, Publications & Calendar",
+      "description": "College news, magazine (LASNews / The Quadrangle), newsletters, media contacts, and event calendars."
+    },
+    {
+      "id": "alumni-giving-audiences",
+      "name": "Advancement & Audience Gateways",
+      "description": "Philanthropy/giving, alumni relations, and explicit persona-segmented gateways (Students, Parents, Faculty/Staff)."
+    }
+  ],
+  "concepts": [
+    {
+      "id": "about-overview",
+      "domainId": "about-org",
+      "name": "About LAS, Mission & Fast Facts",
+      "shortName": "About & Facts",
+      "defaultParadigm": "topic",
+      "description": "General college overview, mission/values, history, strategic plan, and statistical profile."
+    },
+    {
+      "id": "units-departments",
+      "domainId": "about-org",
+      "name": "Departments, Units & Divisions",
+      "shortName": "Units & Depts",
+      "defaultParadigm": "topic",
+      "description": "Directory of LAS departments, schools, divisions, museums, and interdisciplinary units."
+    },
+    {
+      "id": "leadership-directory",
+      "domainId": "about-org",
+      "name": "Leadership, Administration & Directory",
+      "shortName": "Leadership & Directory",
+      "defaultParadigm": "topic",
+      "description": "Dean/administration profiles, college offices, and people directory."
+    },
+    {
+      "id": "diversity-inclusion",
+      "domainId": "about-org",
+      "name": "Inclusive Excellence & DEI",
+      "shortName": "Inclusive Excellence",
+      "defaultParadigm": "topic",
+      "description": "Statement on diversity, DEI initiatives, and Office of Inclusive Excellence."
+    },
+    {
+      "id": "contact-location",
+      "domainId": "about-org",
+      "name": "Contact Us, Maps & Search",
+      "shortName": "Contact & Search",
+      "defaultParadigm": "task",
+      "description": "Contact channels, campus building finder (\"Find a Place\"), safety, and site search."
+    },
+    {
+      "id": "admissions-apply",
+      "domainId": "recruitment-admissions",
+      "name": "Admissions & Apply to LAS",
+      "shortName": "Admissions / Apply",
+      "defaultParadigm": "task",
+      "description": "Undergraduate admissions hub and direct application calls to action."
+    },
+    {
+      "id": "visit-campus",
+      "domainId": "recruitment-admissions",
+      "name": "Visit Campus & Prospective Experience",
+      "shortName": "Visit & Campus Life",
+      "defaultParadigm": "task",
+      "description": "Campus visit scheduling, campus life previews, and prospective student outreach."
+    },
+    {
+      "id": "transfer-pathways",
+      "domainId": "recruitment-admissions",
+      "name": "Intercollegiate & Off-Campus Transfers",
+      "shortName": "Transfer Pathways",
+      "defaultParadigm": "task",
+      "description": "Intercollegiate transfer (ICT), off-campus transfer, second-degree, and re-entry routes."
+    },
+    {
+      "id": "prospective-faqs-blogs",
+      "domainId": "recruitment-admissions",
+      "name": "Admissions FAQs, Blogs & Pre-College",
+      "shortName": "FAQs, Blogs & Summer",
+      "defaultParadigm": "topic",
+      "description": "Admissions/CS+X FAQs, LAS Insider student blog, and pre-college summer programs."
+    },
+    {
+      "id": "majors-programs",
+      "domainId": "academics-curricula",
+      "name": "Majors, Minors & Programs of Study",
+      "shortName": "Majors & Programs",
+      "defaultParadigm": "topic",
+      "description": "Undergraduate degree programs, majors, minors, certificates, and exploring fields of study."
+    },
+    {
+      "id": "courses-gened",
+      "domainId": "academics-curricula",
+      "name": "Courses, Offerings & General Education",
+      "shortName": "Courses & GenEd",
+      "defaultParadigm": "topic",
+      "description": "Course catalogs, degree/General Education requirements, and curriculum proposal forms."
+    },
+    {
+      "id": "policies-dates-forms",
+      "domainId": "academics-curricula",
+      "name": "Policies, Standing, Deadlines & Forms",
+      "shortName": "Policies, Dates & Forms",
+      "defaultParadigm": "task",
+      "description": "Academic rules, integrity, attendance, dates/deadlines, and student petition/program forms."
+    },
+    {
+      "id": "graduation-commencement",
+      "domainId": "academics-curricula",
+      "name": "Graduation, DARS & Commencement",
+      "shortName": "Graduation",
+      "defaultParadigm": "task",
+      "description": "Degree audit (DARS), graduation preparation, and commencement ceremonies."
+    },
+    {
+      "id": "online-programs",
+      "domainId": "academics-curricula",
+      "name": "Online & Off-Campus Programs",
+      "shortName": "Online Programs",
+      "defaultParadigm": "topic",
+      "description": "LAS Online education, Coursera/MOOC initiatives, and off-campus offerings."
+    },
+    {
+      "id": "advising-support",
+      "domainId": "student-experience",
+      "name": "Academic Advising & Student Support",
+      "shortName": "Advising & Support",
+      "defaultParadigm": "task",
+      "description": "College/departmental advising, workshops, Paul M. Lisnek LAS Hub, and student support."
+    },
+    {
+      "id": "career-internships",
+      "domainId": "student-experience",
+      "name": "Career Readiness, Life Design & Internships",
+      "shortName": "Career & Internships",
+      "defaultParadigm": "topic",
+      "description": "Life + Career Design, career services, job search tools, e-portfolios, and internships."
+    },
+    {
+      "id": "honors-scholarships",
+      "domainId": "student-experience",
+      "name": "Honors, James Scholars & Scholarships",
+      "shortName": "Honors & Scholarships",
+      "defaultParadigm": "topic",
+      "description": "James Scholar honors, college distinctions, and undergraduate scholarships/emergency funds."
+    },
+    {
+      "id": "study-abroad-global",
+      "domainId": "student-experience",
+      "name": "Study Abroad & International Programs",
+      "shortName": "Study Abroad / Global",
+      "defaultParadigm": "topic",
+      "description": "LAS International Programs, courses abroad, Latitudes, and global learning."
+    },
+    {
+      "id": "first-year-wellness",
+      "domainId": "student-experience",
+      "name": "First-Year Experience, AAP & Wellness",
+      "shortName": "FYE, AAP & Wellness",
+      "defaultParadigm": "topic",
+      "description": "LAS 101/102 First-Year Experience, Access & Achievement Program (AAP), student orgs, and wellness."
+    },
+    {
+      "id": "research-centers",
+      "domainId": "research-impact",
+      "name": "Research Centers, Expertise & Engagement",
+      "shortName": "Research & Centers",
+      "defaultParadigm": "topic",
+      "description": "Research centers/facilities, faculty experts, undergraduate/graduate research, and public engagement."
+    },
+    {
+      "id": "news-publications",
+      "domainId": "news-events",
+      "name": "College News, Magazine & Newsletters",
+      "shortName": "News & Magazine",
+      "defaultParadigm": "topic",
+      "description": "LAS News, LASNews / The Quadrangle magazine, email newsletters, faculty honors, and social/media contacts."
+    },
+    {
+      "id": "events-calendars",
+      "domainId": "news-events",
+      "name": "Calendars, Lectures & College Events",
+      "shortName": "Events & Calendar",
+      "defaultParadigm": "topic",
+      "description": "Academic/event calendars, Dean’s Distinguished Lectures, and alumni/college events."
+    },
+    {
+      "id": "giving-make-gift",
+      "domainId": "alumni-giving-audiences",
+      "name": "Giving & Philanthropy (\"Give to LAS\")",
+      "shortName": "Give / Philanthropy",
+      "defaultParadigm": "task",
+      "description": "Make a Gift CTAs, Day of Giving, Lincoln Scholars, building campaigns, and donor impact."
+    },
+    {
+      "id": "alumni-engagement",
+      "domainId": "alumni-giving-audiences",
+      "name": "Alumni Relations, Council & Awards",
+      "shortName": "Alumni Hub",
+      "defaultParadigm": "audience",
+      "description": "Alumni hub, Alumni Association/Council, awards, volunteering, and LAS@Work alumni careers."
+    },
+    {
+      "id": "persona-students-parents",
+      "domainId": "alumni-giving-audiences",
+      "name": "Audience Gateways: Students & Parents",
+      "shortName": "Persona: Students/Parents",
+      "defaultParadigm": "audience",
+      "description": "Explicit persona containers (\"For Students\", \"Prospective Students\", \"Current Students\", \"Student resources\", \"Parent resources\")."
+    },
+    {
+      "id": "persona-faculty-staff",
+      "domainId": "alumni-giving-audiences",
+      "name": "Audience Gateway: Faculty & Staff",
+      "shortName": "Persona: Faculty/Staff",
+      "defaultParadigm": "audience",
+      "description": "Explicit internal campus persona gateway (\"For Faculty & Staff\", Advising Toolbox, Curricula/Course Governance, LAS Services Center)."
+    }
+  ]
+}

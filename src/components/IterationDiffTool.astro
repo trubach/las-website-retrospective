@@ -1,0 +1,658 @@
+---
+import type { DesignIteration, TaxonomyDataset } from '../types/retrospective';
+import { buildConceptMatrix, withBase } from '../utils/retrospective-helpers';
+
+interface Props {
+  taxonomy: TaxonomyDataset;
+  iterations: DesignIteration[];
+}
+
+const { taxonomy, iterations } = Astro.props;
+const matrix = buildConceptMatrix(taxonomy, iterations);
+
+const diffPayload = {
+  concepts: taxonomy.concepts.map((c) => ({
+    id: c.id,
+    name: c.name,
+    shortName: c.shortName,
+  })),
+  iterations: iterations.map((it) => ({
+    id: it.id,
+    debutYear: it.debutYear,
+    yearSpanLabel: it.yearSpanLabel,
+    title: it.title,
+    canonicalHost: it.canonicalHost,
+    foldSrc: withBase(it.showcaseFoldImage),
+    waybackUrl: it.showcaseWaybackUrl,
+    metrics: it.metrics,
+    iaHeadline: it.iaHeadline,
+  })),
+  matrix,
+};
+
+const defaultA = 'iter-2014';
+const defaultB = 'iter-2025';
+---
+
+<section
+  id="iteration-diff"
+  class="diff-section"
+  aria-labelledby="diff-heading"
+  data-diff-payload={JSON.stringify(diffPayload)}
+>
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Interactive Comparison Tool</span>
+      <h2 id="diff-heading" class="section-heading">Side-by-Side Design Iteration &amp; Navigation Diff</h2>
+      <p class="section-lead">
+        Compare any two Design Iterations to inspect visual layout changes, quantitative hierarchy shifts, and how each
+        Canonical Navigation Concept was added, removed, displaced to the footer, or realigned across zones.
+      </p>
+    </div>
+
+    <div class="diff-presets" role="group" aria-label="Suggested comparison pairs">
+      <span class="preset-lbl">Quick Comparisons:</span>
+      <button type="button" class="preset-btn is-active" data-diff-pair="iter-2014,iter-2025">
+        2014 Audience Mega-Menu vs. 2025 Recruitment-First
+      </button>
+      <button type="button" class="preset-btn" data-diff-pair="iter-2000,iter-2025">
+        2000 Earliest Directory vs. 2025 Web Theme
+      </button>
+      <button type="button" class="preset-btn" data-diff-pair="iter-2008,iter-2014">
+        2008 ATLAS Tableless vs. 2014 Bootstrap
+      </button>
+      <button type="button" class="preset-btn" data-diff-pair="iter-2016,iter-2019">
+        2016 Last Audience Era vs. 2019 Drupal Pivot
+      </button>
+      <button type="button" class="preset-btn" data-diff-pair="iter-2021,iter-2025">
+        2021 Block-I Header vs. 2025 Web Theme
+      </button>
+    </div>
+
+    <div class="diff-selectors">
+      <div class="selector-field">
+        <label for="diff-select-a">Earlier / Baseline Iteration (A)</label>
+        <select id="diff-select-a" data-diff-a>
+          {
+            iterations.map((it) => (
+              <option value={it.id} selected={it.id === defaultA}>
+                {it.debutYear} ({it.yearSpanLabel}) — {it.title}
+              </option>
+            ))
+          }
+        </select>
+      </div>
+
+      <button type="button" class="swap-btn" data-diff-swap aria-label="Swap Era A and Era B">
+        ⇄ Swap
+      </button>
+
+      <div class="selector-field">
+        <label for="diff-select-b">Comparison Iteration (B)</label>
+        <select id="diff-select-b" data-diff-b>
+          {
+            iterations.map((it) => (
+              <option value={it.id} selected={it.id === defaultB}>
+                {it.debutYear} ({it.yearSpanLabel}) — {it.title}
+              </option>
+            ))
+          }
+        </select>
+      </div>
+    </div>
+
+    <!-- Side-by-side visual + metric comparison -->
+    <div class="diff-visual-grid">
+      <div class="diff-pane" data-pane-a>
+        <div class="pane-head">
+          <span class="pane-tag">Iteration A</span>
+          <span class="pane-host mono" data-a-host></span>
+        </div>
+        <h3 class="pane-title" data-a-title></h3>
+        <button type="button" class="pane-img-btn" data-a-lightbox>
+          <img src="" alt="" width="1280" height="900" loading="lazy" data-a-img />
+          <span class="pane-zoom-lbl">Full-Page Screencap ⤢</span>
+        </button>
+        <p class="pane-thesis" data-a-thesis></p>
+        <div class="pane-stats" data-a-stats></div>
+      </div>
+
+      <div class="diff-pane diff-pane-b" data-pane-b>
+        <div class="pane-head">
+          <span class="pane-tag pane-tag-b">Iteration B</span>
+          <span class="pane-host mono" data-b-host></span>
+        </div>
+        <h3 class="pane-title" data-b-title></h3>
+        <button type="button" class="pane-img-btn" data-b-lightbox>
+          <img src="" alt="" width="1280" height="900" loading="lazy" data-b-img />
+          <span class="pane-zoom-lbl">Full-Page Screencap ⤢</span>
+        </button>
+        <p class="pane-thesis" data-b-thesis></p>
+        <div class="pane-stats" data-b-stats></div>
+      </div>
+    </div>
+
+    <div class="delta-summary-strip" data-delta-strip aria-live="polite"></div>
+
+    <!-- 4-Bucket Concept Diff -->
+    <div class="diff-buckets-grid">
+      <div class="bucket-card bucket-shifted">
+        <h4 class="bucket-title">
+          Zone or Hierarchy Realigned <span class="bucket-count" data-count-shifted>0</span>
+        </h4>
+        <p class="bucket-desc">Present in both eras, but moved across navigation bars or between Level 1 and Level 2.</p>
+        <ul class="bucket-list" data-list-shifted></ul>
+      </div>
+
+      <div class="bucket-card bucket-removed">
+        <h4 class="bucket-title">
+          Removed or Displaced to Footer <span class="bucket-count" data-count-removed>0</span>
+        </h4>
+        <p class="bucket-desc">In header navigation in Era A, then dropped or intentionally relocated to the footer in Era B.</p>
+        <ul class="bucket-list" data-list-removed></ul>
+      </div>
+
+      <div class="bucket-card bucket-added">
+        <h4 class="bucket-title">
+          Newly Added in Era B <span class="bucket-count" data-count-added>0</span>
+        </h4>
+        <p class="bucket-desc">Absent from Era A homepage navigation and introduced in Era B.</p>
+        <ul class="bucket-list" data-list-added></ul>
+      </div>
+
+      <div class="bucket-card bucket-same">
+        <h4 class="bucket-title">
+          Persistent Same-Zone Core <span class="bucket-count" data-count-same>0</span>
+        </h4>
+        <p class="bucket-desc">Retained in the exact same primary zone &amp; hierarchy level across both eras.</p>
+        <ul class="bucket-list" data-list-same></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const section = document.getElementById('iteration-diff');
+  if (section && section.dataset.diffPayload) {
+    const payload = JSON.parse(section.dataset.diffPayload);
+    const iterById = new Map<string, any>(payload.iterations.map((i: any) => [i.id, i]));
+
+    const selA = section.querySelector<HTMLSelectElement>('[data-diff-a]')!;
+    const selB = section.querySelector<HTMLSelectElement>('[data-diff-b]')!;
+    const swapBtn = section.querySelector<HTMLButtonElement>('[data-diff-swap]')!;
+    const presetBtns = Array.from(section.querySelectorAll<HTMLButtonElement>('[data-diff-pair]'));
+
+    function summarizeLabels(cell: any): string {
+      if (!cell || !cell.entries || cell.entries.length === 0) return 'Absent';
+      const headerEntries = cell.entries.filter((e: any) => e.level !== 'footer');
+      const footerEntries = cell.entries.filter((e: any) => e.level === 'footer');
+      const active = headerEntries.length > 0 ? headerEntries : footerEntries;
+      const labels = active
+        .slice(0, 2)
+        .map((e: any) => (e.parentLabel ? `${e.parentLabel} → "${e.label}"` : `"${e.label}"`));
+      const suffix = active.length > 2 ? ` (+${active.length - 2})` : '';
+      const footerNote =
+        headerEntries.length > 0 && footerEntries.length > 0
+          ? ` + Footer Menu (${footerEntries.length} links)`
+          : '';
+      return `${labels.join(', ')}${suffix}${footerNote}`;
+    }
+
+    function renderPane(prefix: 'a' | 'b', it: any) {
+      const hostEl = section!.querySelector<HTMLElement>(`[data-${prefix}-host]`);
+      const titleEl = section!.querySelector<HTMLElement>(`[data-${prefix}-title]`);
+      const imgEl = section!.querySelector<HTMLImageElement>(`[data-${prefix}-img]`);
+      const lbBtn = section!.querySelector<HTMLButtonElement>(`[data-${prefix}-lightbox]`);
+      const thesisEl = section!.querySelector<HTMLElement>(`[data-${prefix}-thesis]`);
+      const statsEl = section!.querySelector<HTMLElement>(`[data-${prefix}-stats]`);
+
+      if (hostEl) hostEl.textContent = `${it.yearSpanLabel} · ${it.canonicalHost}`;
+      if (titleEl) titleEl.textContent = `${it.debutYear}: ${it.title}`;
+      if (imgEl) {
+        imgEl.src = it.foldSrc;
+        imgEl.alt = `${it.debutYear} College of LAS homepage screencap`;
+      }
+      if (lbBtn) {
+        lbBtn.dataset.year = String(it.debutYear);
+      }
+      if (thesisEl) thesisEl.textContent = it.iaHeadline;
+      if (statsEl) {
+        statsEl.textContent = `${it.metrics.zoneCount} Zones · ${it.metrics.level1Count} L1 links · ${it.metrics.level2Count} L2 links · ${it.metrics.audienceGatedPercentage}% Audience-Gated`;
+      }
+    }
+
+    function fillBucket(listSelector: string, countSelector: string, rows: { title: string; detail: string }[]) {
+      const countEl = section!.querySelector<HTMLElement>(countSelector);
+      const ulEl = section!.querySelector<HTMLUListElement>(listSelector);
+      if (countEl) countEl.textContent = String(rows.length);
+      if (!ulEl) return;
+      ulEl.innerHTML = '';
+      if (rows.length === 0) {
+        const li = document.createElement('li');
+        li.className = 'bucket-empty';
+        li.textContent = 'None between these two iterations.';
+        ulEl.appendChild(li);
+        return;
+      }
+      for (const r of rows) {
+        const li = document.createElement('li');
+        li.className = 'bucket-item';
+        const strong = document.createElement('strong');
+        strong.textContent = r.title;
+        const span = document.createElement('span');
+        span.textContent = r.detail;
+        li.append(strong, span);
+        ulEl.appendChild(li);
+      }
+    }
+
+    function formatSigned(n: number, unit = ''): string {
+      return `${n > 0 ? '+' : ''}${n}${unit}`;
+    }
+
+    function updateDiff() {
+      const itA = iterById.get(selA.value);
+      const itB = iterById.get(selB.value);
+      if (!itA || !itB) return;
+
+      renderPane('a', itA);
+      renderPane('b', itB);
+
+      const dL1 = itB.metrics.level1Count - itA.metrics.level1Count;
+      const dL2 = itB.metrics.level2Count - itA.metrics.level2Count;
+      const dAud = itB.metrics.audienceGatedPercentage - itA.metrics.audienceGatedPercentage;
+
+      const deltaStrip = section!.querySelector<HTMLElement>('[data-delta-strip]');
+      if (deltaStrip) {
+        deltaStrip.textContent = `Net Structural Delta (${itA.debutYear} → ${itB.debutYear}): Level-1 links ${formatSigned(
+          dL1
+        )} · Level-2 sublinks ${formatSigned(dL2)} · Audience-Gated Share ${formatSigned(dAud, ' pts')}`;
+      }
+
+      const shifted: { title: string; detail: string }[] = [];
+      const removed: { title: string; detail: string }[] = [];
+      const added: { title: string; detail: string }[] = [];
+      const same: { title: string; detail: string }[] = [];
+
+      for (const c of payload.concepts) {
+        const cellA = payload.matrix[c.id][itA.id];
+        const cellB = payload.matrix[c.id][itB.id];
+        const inHeaderA = cellA.code !== 'NONE' && cellA.code !== 'FTR';
+        const inHeaderB = cellB.code !== 'NONE' && cellB.code !== 'FTR';
+
+        if (inHeaderA && !inHeaderB) {
+          if (cellB.code === 'FTR') {
+            removed.push({
+              title: c.name,
+              detail: `${cellA.zoneSummary} (${summarizeLabels(cellA)}) → Displaced to Footer (${summarizeLabels(cellB)})`,
+            });
+          } else {
+            removed.push({
+              title: c.name,
+              detail: `${cellA.zoneSummary} (${summarizeLabels(cellA)}) → Removed from homepage nav`,
+            });
+          }
+        } else if (!inHeaderA && inHeaderB) {
+          const fromTxt = cellA.code === 'FTR' ? 'Footer-only' : 'Absent';
+          added.push({
+            title: c.name,
+            detail: `${fromTxt} → ${cellB.zoneSummary}: ${summarizeLabels(cellB)}`,
+          });
+        } else if (inHeaderA && inHeaderB) {
+          if (cellA.code !== cellB.code) {
+            shifted.push({
+              title: c.name,
+              detail: `${cellA.badgeLabel} (${summarizeLabels(cellA)}) → ${cellB.badgeLabel} (${summarizeLabels(cellB)})`,
+            });
+          } else {
+            same.push({
+              title: c.name,
+              detail: `${cellA.badgeLabel}: ${summarizeLabels(cellA)} → ${summarizeLabels(cellB)}`,
+            });
+          }
+        }
+      }
+
+      fillBucket('[data-list-shifted]', '[data-count-shifted]', shifted);
+      fillBucket('[data-list-removed]', '[data-count-removed]', removed);
+      fillBucket('[data-list-added]', '[data-count-added]', added);
+      fillBucket('[data-list-same]', '[data-count-same]', same);
+
+      const pairKey = `${selA.value},${selB.value}`;
+      presetBtns.forEach((b) => b.classList.toggle('is-active', b.dataset.diffPair === pairKey));
+    }
+
+    selA.addEventListener('change', updateDiff);
+    selB.addEventListener('change', updateDiff);
+
+    swapBtn.addEventListener('click', () => {
+      const tmp = selA.value;
+      selA.value = selB.value;
+      selB.value = tmp;
+      updateDiff();
+    });
+
+    presetBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const [a, b] = (btn.dataset.diffPair || '').split(',');
+        if (a && b) {
+          selA.value = a;
+          selB.value = b;
+          updateDiff();
+        }
+      });
+    });
+
+    ['a', 'b'].forEach((prefix) => {
+      const lbBtn = section.querySelector<HTMLButtonElement>(`[data-${prefix}-lightbox]`);
+      lbBtn?.addEventListener('click', () => {
+        const yr = Number(lbBtn.dataset.year);
+        if (yr) window.dispatchEvent(new CustomEvent('open-screencap-lightbox', { detail: { year: yr } }));
+      });
+    });
+
+    updateDiff();
+  }
+</script>
+
+<style>
+  .diff-section {
+    padding: 3.25rem 0 4rem;
+    background: var(--bg-surface);
+    scroll-margin-top: 3.5rem;
+  }
+
+  .section-header {
+    margin-bottom: 1.35rem;
+  }
+
+  .diff-presets {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .preset-lbl {
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-secondary);
+    margin-right: 0.2rem;
+  }
+
+  .preset-btn {
+    background: var(--bg-page);
+    border: 1px solid var(--border-light);
+    border-radius: 999px;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.79rem;
+    font-weight: 650;
+    color: var(--ink-body);
+    cursor: pointer;
+  }
+
+  .preset-btn:hover {
+    border-color: var(--illini-navy);
+  }
+
+  .preset-btn.is-active {
+    background: var(--illini-navy);
+    color: #ffffff;
+    border-color: var(--illini-navy);
+  }
+
+  .diff-selectors {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0.85rem;
+    align-items: end;
+    background: var(--bg-page);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.15rem;
+    margin-bottom: 1.35rem;
+  }
+
+  .selector-field label {
+    display: block;
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-secondary);
+    margin-bottom: 0.35rem;
+  }
+
+  .selector-field select {
+    width: 100%;
+    padding: 0.5rem 0.65rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-strong);
+    background: #ffffff;
+    color: var(--ink-body);
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+
+  .swap-btn {
+    background: #ffffff;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    padding: 0.5rem 0.85rem;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--illini-navy);
+    cursor: pointer;
+  }
+
+  .swap-btn:hover {
+    border-color: var(--illini-navy);
+    background: var(--bg-subtle);
+  }
+
+  .diff-visual-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .diff-pane {
+    background: var(--bg-page);
+    border: 1px solid var(--border-light);
+    border-top: 3px solid var(--illini-navy);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.15rem;
+  }
+
+  .diff-pane-b {
+    border-top-color: var(--illini-orange);
+  }
+
+  .pane-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .pane-tag {
+    font-size: 0.72rem;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--illini-navy);
+  }
+
+  .pane-tag-b {
+    color: var(--illini-orange-ink);
+  }
+
+  .pane-host {
+    font-size: 0.76rem;
+    color: var(--ink-secondary);
+  }
+
+  .pane-title {
+    margin: 0 0 0.65rem;
+    font-size: 1.05rem;
+    color: var(--illini-navy);
+  }
+
+  .pane-img-btn {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: #ffffff;
+    cursor: zoom-in;
+  }
+
+  .pane-img-btn img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1280 / 900;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .pane-zoom-lbl {
+    position: absolute;
+    right: 0.55rem;
+    bottom: 0.55rem;
+    background: rgba(19, 41, 75, 0.88);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 650;
+    padding: 0.25rem 0.55rem;
+    border-radius: 4px;
+  }
+
+  .pane-thesis {
+    margin: 0.65rem 0 0.35rem;
+    font-size: 0.85rem;
+    color: var(--ink-body);
+  }
+
+  .pane-stats {
+    font-size: 0.78rem;
+    font-weight: 650;
+    color: var(--ink-secondary);
+  }
+
+  .delta-summary-strip {
+    background: var(--illini-navy-tint);
+    border: 1px solid #cdd8e7;
+    border-left: 4px solid var(--illini-navy);
+    border-radius: var(--radius-sm);
+    padding: 0.65rem 1rem;
+    font-size: 0.86rem;
+    font-weight: 650;
+    color: var(--illini-navy);
+    margin-bottom: 1.25rem;
+  }
+
+  .diff-buckets-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .bucket-card {
+    background: var(--bg-page);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.15rem;
+  }
+
+  .bucket-shifted {
+    border-left: 4px solid var(--illini-orange);
+  }
+  .bucket-removed {
+    border-left: 4px solid #8a4b2a;
+  }
+  .bucket-added {
+    border-left: 4px solid #1d7a64;
+  }
+  .bucket-same {
+    border-left: 4px solid var(--illini-navy);
+  }
+
+  .bucket-title {
+    margin: 0 0 0.2rem;
+    font-size: 0.96rem;
+    color: var(--illini-navy);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .bucket-count {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 999px;
+    padding: 0.08rem 0.52rem;
+    font-size: 0.76rem;
+    color: var(--illini-navy);
+  }
+
+  .bucket-desc {
+    margin: 0 0 0.65rem;
+    font-size: 0.79rem;
+    color: var(--ink-secondary);
+  }
+
+  .bucket-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    max-height: 320px;
+    overflow-y: auto;
+  }
+
+  :global(.bucket-item) {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 0.45rem 0.65rem;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  :global(.bucket-item strong) {
+    color: var(--illini-navy);
+  }
+
+  :global(.bucket-item span) {
+    color: var(--ink-secondary);
+    font-size: 0.76rem;
+  }
+
+  :global(.bucket-empty) {
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+
+  @media (max-width: 900px) {
+    .diff-selectors {
+      grid-template-columns: 1fr;
+    }
+    .diff-visual-grid,
+    .diff-buckets-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,3247 @@
+[
+  {
+    "id": "iter-2000",
+    "number": 1,
+    "debutYear": 2000,
+    "endYear": 2000,
+    "yearSpanLabel": "2000",
+    "title": "Early Institutional Directory",
+    "eraTagline": "Single-column HTML table index organized by administrative document categories",
+    "canonicalHost": "www.las.uiuc.edu",
+    "techSignature": "HTML 4.0 table layout (4 tables, zero external CSS)",
+    "visualSummary": "Minimal white page pairing a left-rail Lincoln Hall arch emblem and seasonal commencement link with a single vertical index divided into College Information, Program and Course Information, External Relations, and standalone utility links.",
+    "iaHeadline": "Document-centric institutional index with flat Level-1 links and almost no persona segmentation.",
+    "iaAnalysis": [
+      "The earliest archived LAS homepage functioned entirely as a table of contents rather than an editorial homepage. With zero horizontal header bars or dropdown menus, all 13 core links lived in one flat vertical list grouped under three bold subheadings: College Information, Program and Course Information, and External Relations.",
+      "Information architecture mirrored internal administrative silos—placing faculty governance forms (\"Course and Curriculum Proposal Forms\") directly alongside undergraduate catalog links (\"Undergraduate Degree Programs\", \"General Education Requirements\") at the exact same hierarchy level."
+    ],
+    "audienceNavCommentary": "Audience navigation had not yet crystallized into a dedicated bar. Only two mild audience labels existed—\"Student Information\" and \"Alumni\"—mixed inline with institutional topics and internal faculty curriculum forms.",
+    "intraEraDrift": [
+      {
+        "years": "Apr–Dec 2000",
+        "summary": "Left-rail seasonal spotlight rotated between Spring/December 1999 and December 2000 Commencement links while the 13-item main directory remained static."
+      }
+    ],
+    "zones": [
+      {
+        "id": "2000-directory",
+        "name": "Main Directory Index",
+        "zoneType": "primary",
+        "placement": "Center vertical column under 3 administrative headings",
+        "dominantParadigm": "topic",
+        "description": "Flat vertical directory serving simultaneously as homepage body and site-wide primary navigation.",
+        "items": [
+          {
+            "label": "General Information",
+            "href": "general_information.html",
+            "paradigm": "topic",
+            "conceptId": "about-overview",
+            "groupHeading": "College Information"
+          },
+          {
+            "label": "Student Information",
+            "href": "student_information.html",
+            "paradigm": "audience",
+            "conceptId": "persona-students-parents",
+            "groupHeading": "College Information"
+          },
+          {
+            "label": "Department and Academic Units",
+            "href": "academic.html",
+            "paradigm": "topic",
+            "conceptId": "units-departments",
+            "groupHeading": "College Information"
+          },
+          {
+            "label": "Research and Instructional Resources",
+            "href": "las_resources.html",
+            "paradigm": "topic",
+            "conceptId": "research-centers",
+            "groupHeading": "College Information"
+          },
+          {
+            "label": "Undergraduate Degree Programs",
+            "href": "p_index.html",
+            "paradigm": "topic",
+            "conceptId": "majors-programs",
+            "groupHeading": "Program and Course Information"
+          },
+          {
+            "label": "LAS Course Offerings",
+            "href": "las_course_offerings.html",
+            "paradigm": "topic",
+            "conceptId": "courses-gened",
+            "groupHeading": "Program and Course Information"
+          },
+          {
+            "label": "General Education Requirements",
+            "href": "undergrad_degree_programs.html#general_education",
+            "paradigm": "topic",
+            "conceptId": "courses-gened",
+            "groupHeading": "Program and Course Information"
+          },
+          {
+            "label": "Course and Curriculum Proposal Forms",
+            "href": "course-forms.html",
+            "paradigm": "task",
+            "conceptId": "persona-faculty-staff",
+            "groupHeading": "Program and Course Information"
+          },
+          {
+            "label": "Alumni",
+            "href": "alumni_relations.html",
+            "paradigm": "audience",
+            "conceptId": "alumni-engagement",
+            "groupHeading": "External Relations"
+          },
+          {
+            "label": "Development",
+            "href": "dev/index.html",
+            "paradigm": "topic",
+            "conceptId": "giving-make-gift",
+            "groupHeading": "External Relations"
+          },
+          {
+            "label": "Make A Gift",
+            "href": "makeagift.html",
+            "paradigm": "task",
+            "conceptId": "giving-make-gift"
+          },
+          {
+            "label": "Calendars",
+            "href": "calendars.html",
+            "paradigm": "topic",
+            "conceptId": "events-calendars"
+          },
+          {
+            "label": "Search LAS",
+            "href": "search.html",
+            "paradigm": "task",
+            "conceptId": "contact-location"
+          }
+        ]
+      },
+      {
+        "id": "2000-sidebar",
+        "name": "Left Crest Callout",
+        "zoneType": "sidebar",
+        "placement": "Left table column below Lincoln Hall / LAS emblem",
+        "dominantParadigm": "task",
+        "description": "Seasonal high-priority link slot beneath the college crest.",
+        "items": [
+          {
+            "label": "December 2000 Commencement Info",
+            "href": "commence_dec00.html",
+            "paradigm": "task",
+            "conceptId": "graduation-commencement"
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "zoneCount": 2,
+      "level1Count": 14,
+      "level2Count": 0,
+      "totalItems": 14,
+      "maxDepth": 1,
+      "paradigmCounts": {
+        "audience": 2,
+        "topic": 8,
+        "task": 4,
+        "hybrid": 0
+      },
+      "paradigmPercentages": {
+        "audience": 14,
+        "topic": 57,
+        "task": 29,
+        "hybrid": 0
+      },
+      "l1ParadigmPercentages": {
+        "audience": 14,
+        "topic": 57,
+        "task": 29,
+        "hybrid": 0
+      },
+      "audienceGatedPercentage": 14
+    },
+    "showcaseFoldImage": "screenshots/2000-fold.webp",
+    "showcaseFullImage": "screenshots/2000-full.webp",
+    "showcaseWaybackUrl": "https://web.archive.org/web/20001009131944/http://www.las.uiuc.edu:80/",
+    "showcaseCaptureDate": "2000-10-09"
+  },
+  {
+    "id": "iter-2001",
+    "number": 2,
+    "debutYear": 2001,
+    "endYear": 2004,
+    "yearSpanLabel": "2001–2004",
+    "title": "Quad Panorama & First Audience Portals",
+    "eraTagline": "Introduction of a horizontal navbar and explicit \"For Students / Faculty / Alumni\" audience hubs",
+    "canonicalHost": "www.las.uiuc.edu",
+    "techSignature": "7-table graphical banner layout + DHTML rollover menus (/js/lasmenus.js)",
+    "visualSummary": "Full-width Main Quad panoramic banner crowned by a dark horizontal navigation strip, paired below with a two-column split between annotated core gateways on the left and timely announcements + quick utility links on the right.",
+    "iaHeadline": "Birth of persona-based wayfinding at LAS: three of six core sections became audience portals.",
+    "iaAnalysis": [
+      "The 2001 redesign replaced the 2000 administrative link list with LAS’s first true horizontal navigation bar: about las, academic units, students, faculty/staff, alumni/friends, make-a-gift, and search. Those exact six gateways were intentionally echoed immediately below the hero banner with 1-sentence descriptions (\"For Students\", \"For Faculty and Staff\", \"For Alumni and Friends\") to orient first-time web visitors.",
+      "Rather than exposing deep academic links directly on the homepage, the IA consolidated 13 links down to 7 top-level hubs—routing undergraduate majors, advising, and policies behind \"For Students\" and governance behind \"For Faculty and Staff\"."
+    ],
+    "audienceNavCommentary": "This iteration established the persona-first mental model that dominated LAS web architecture for the next 17 years: Students, Faculty/Staff, and Alumni/Friends became co-equal Level-1 peers inside the main navigation bar.",
+    "intraEraDrift": [
+      {
+        "years": "2002–2004",
+        "summary": "Replaced the duplicate body directory list on the homepage with editorial feature stories and campus news teasers while keeping the 7-item horizontal top bar intact through late 2004."
+      }
+    ],
+    "zones": [
+      {
+        "id": "2001-primary",
+        "name": "Top Horizontal Navigation Bar",
+        "zoneType": "primary",
+        "placement": "Dark horizontal strip directly beneath the Quad panorama header",
+        "dominantParadigm": "hybrid",
+        "description": "Seven-item horizontal bar blending two institutional topics, three audience portals, and two utility actions.",
+        "items": [
+          {
+            "label": "about las",
+            "href": "/about/contents.shtml",
+            "paradigm": "topic",
+            "conceptId": "about-overview"
+          },
+          {
+            "label": "academic units",
+            "href": "/acunits.shtml",
+            "paradigm": "topic",
+            "conceptId": "units-departments"
+          },
+          {
+            "label": "students",
+            "href": "/students/contents.shtml",
+            "paradigm": "audience",
+            "conceptId": "persona-students-parents"
+          },
+          {
+            "label": "faculty/staff",
+            "href": "/faculty/contents.shtml",
+            "paradigm": "audience",
+            "conceptId": "persona-faculty-staff"
+          },
+          {
+            "label": "alumni/friends",
+            "href": "/alumni/alumni.shtml",
+            "paradigm": "audience",
+            "conceptId": "alumni-engagement"
+          },
+          {
+            "label": "make-a-gift",
+            "href": "/makeagift.shtml",
+            "paradigm": "task",
+            "conceptId": "giving-make-gift"
+          },
+          {
+            "label": "search",
+            "href": "/search.shtml",
+            "paradigm": "task",
+            "conceptId": "contact-location"
+          }
+        ]
+      },
+      {
+        "id": "2001-audience-directory",
+        "name": "Annotated Gateway Directory",
+        "zoneType": "audience-bar",
+        "placement": "Primary left-column portal list with audience descriptions (2001 debut)",
+        "dominantParadigm": "audience",
+        "description": "Descriptive portal cards reinforcing the new \"For [Audience]\" segmentation.",
+        "items": [
+          {
+            "label": "About LAS",
+            "href": "/about/contents.shtml",
+            "paradigm": "topic",
+            "conceptId": "about-overview"
+          },
+          {
+            "label": "Academic Units",
+            "href": "acunits.shtml",
+            "paradigm": "topic",
+            "conceptId": "units-departments"
+          },
+          {
+            "label": "For Students",
+            "href": "students/contents.shtml",
+            "paradigm": "audience",
+            "conceptId": "persona-students-parents"
+          },
+          {
+            "label": "For Faculty and Staff",
+            "href": "faculty/contents.shtml",
+            "paradigm": "audience",
+            "conceptId": "persona-faculty-staff"
+          },
+          {
+            "label": "For Alumni and Friends",
+            "href": "alumni/contents.shtml",
+            "paradigm": "audience",
+            "conceptId": "alumni-engagement"
+          },
+          {
+            "label": "Make-A-Gift",
+            "href": "/dev/index.html",
+            "paradigm": "task",
+            "conceptId": "giving-make-gift"
+          }
+        ]
+      },
+      {
+        "id": "2001-sidebar-utility",
+        "name": "Right-Rail Quick Links",
+        "zoneType": "sidebar",
+        "placement": "Lower right-hand column below \"What’s New\" announcements",
+        "dominantParadigm": "task",
+        "description": "Campus utility and student-service shortcuts.",
+        "items": [
+          {
+            "label": "Contact Us",
+            "href": "/contact.shtml",
+            "paradigm": "task",
+            "conceptId": "contact-location"
+          },
+          {
+            "label": "Safety",
+            "href": "/safety.shtml",
+            "paradigm": "topic",
+            "conceptId": "contact-location"
+          },
+          {
+            "label": "Writers' Workshop",
+            "href": "http://www.english.uiuc.edu/cws/wworkshop/ww_staff.html",
+            "paradigm": "topic",
+            "conceptId": "advising-support"
+          },
+          {
+            "label": "Search",
+            "href": "/search.shtml",
+            "paradigm": "task",
+            "conceptId": "contact-location"
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "zoneCount": 3,
+      "level1Count": 17,
+      "level2Count": 0,
+      "totalItems": 17,
+      "maxDepth": 1,
+      "paradigmCounts": {
+        "audience": 6,
+        "topic": 6,
+        "task": 5,
+        "hybrid": 0
+      },
+      "paradigmPercentages": {
+        "audience": 35,
+        "topic": 35,
+        "task": 29,
+        "hybrid": 0
+      },
+      "l1ParadigmPercentages": {
+        "audience": 35,
+        "topic": 35,
+        "task": 29,
+        "hybrid": 0
+      },
+      "audienceGatedPercentage": 53
+    },
+    "showcaseFoldImage": "screenshots/2001-fold.webp",
+    "showcaseFullImage": "screenshots/2001-full.webp",
+    "showcaseWaybackUrl": "https://web.archive.org/web/20011011063551/http://www.las.uiuc.edu:80/",
+    "showcaseCaptureDate": "2001-10-11"
+  },
+  {
+    "id": "iter-2005",
+    "number": 3,
+    "debutYear": 2005,
+    "endYear": 2007,
+    "yearSpanLabel": "2005–2007",
+    "title": "Periwinkle Foellinger & \"Resources For\" Split Bar",
+    "eraTagline": "Three-zone header explicitly separating Utility actions, College topics, and a labeled \"Resources For\" audience bar",
+    "canonicalHost": "www.las.uiuc.edu",
+    "techSignature": "Hybrid 13-table + external CSS (/css/las.css; /css/mainnav.css dropdowns added 2006–2007)",
+    "visualSummary": "Fixed-width navy and periwinkle editorial magazine layout featuring Foellinger Auditorium and a 6-photo discipline montage, a white top-right utility pill, a split horizontal bar (\"Resources For: Students | Faculty | Alumni\"), left search/calendar rail, and audience-tagged news columns.",
+    "iaHeadline": "First explicit multi-bar architecture: Utility pill + Topic bar + visually bracketed \"Resources For\" Audience bar.",
+    "iaAnalysis": [
+      "The 2005 refresh solved the mixed-paradigm ambiguity of 2001’s single black navbar by visibly splitting header wayfinding into three distinct zones: a top-right white Utility Header (\"Make a Gift | Contact Us | Find a Place\"), three topic links on the left (\"About LAS | News | Academic Units\"), and three persona links on the right visually grouped under a bracketed \"Resources For\" overline (\"Students | Faculty | Alumni\").",
+      "Even the editorial body mirrored the audience navigation: below the lead research feature, homepage news was partitioned into labeled \"FOR STUDENTS\", \"FACULTY & STAFF\", and \"ALUMNI & FRIENDS\" boxes."
+    ],
+    "audienceNavCommentary": "Adding the explicit \"Resources For\" super-header over Students, Faculty, and Alumni marked the moment LAS formally distinguished audience-based navigation from topic-based navigation within the visual chrome.",
+    "intraEraDrift": [
+      {
+        "years": "2006–2007",
+        "summary": "Added /css/mainnav.css multi-item hover dropdowns beneath all 6 bar items (expanding to 45 Level-2 links, including 12 under Students and 12 under Faculty), shortened \"Academic Units\" to \"Units\", and added an orange top \"mobile version\" strip + left-rail \"Find a Place\" button."
+      }
+    ],
+    "zones": [
+      {
+        "id": "2005-utility",
+        "name": "Top-Right Utility Pill",
+        "zoneType": "utility-header",
+        "placement": "Rounded white pill in top-right corner of the campus banner",
+        "dominantParadigm": "task",
+        "description": "High-intent action and wayfinding shortcuts elevated above the main bar.",
+        "items": [
+          {
+            "label": "Make a Gift",
+            "href": "/giving/",
+            "paradigm": "task",
+            "conceptId": "giving-make-gift"
+          },
+          {
+            "label": "Contact Us",
+            "href": "/contact.html",
+            "paradigm": "task",
+            "conceptId": "contact-location"
+          },
+          {
+            "label": "Find a Place",
+            "href": "/findaplace.html",
+            "paradigm": "task",
+            "conceptId": "contact-location"
+          }
+        ]
+      },
+      {
+        "id": "2005-primary-topics",
+        "name": "Primary Topic Bar (Left)",
+        "zoneType": "primary",
+        "placement": "Left half of periwinkle horizontal navigation bar",
+        "dominantParadigm": "topic",
+        "description": "Core institutional subject sections.",
+        "items": [
+          {
+            "label": "About LAS",
+            "href": "/about/",
+            "paradigm": "topic",
+            "conceptId": "about-overview"
+          },
+          {
+            "label": "LAS News",
+            "href": "/news/",
+            "paradigm": "topic",
+            "conceptId": "news-publications"
+          },
+          {
+            "label": "Academic Units",
+            "href": "/units/",
+            "paradigm": "topic",
+            "conceptId": "units-departments"
+          }
+        ]
+      },
+      {
+        "id": "2005-audience",
+        "name": "\"Resources For\" Audience Bar (Right)",
+        "zoneType": "audience-bar",
+        "placement": "Right half of horizontal bar beneath bracketed \"Resources For\" label",
+        "dominantParadigm": "audience",
+        "description": "Dedicated three-persona gateway cluster.",
+        "items": [
+          {
+            "label": "Students",
+            "href": "/students/",
+            "paradigm": "audience",
+            "conceptId": "persona-students-parents"
+          },
+          {
+            "label": "Faculty",
+            "href": "/faculty/",
+            "paradigm": "audience",
+            "conceptId": "persona-faculty-staff"
+          },
+          {
+            "label": "Alumni",
+            "href": "/alumni/",
+            "paradigm": "audience",
+            "conceptId": "alumni-engagement"
+          }
+        ]
+      },
+      {
+        "id": "2005-sidebar",
+        "name": "Left Search & Calendar Rail",
+        "zoneType": "sidebar",
+        "placement": "Left column below Foellinger Auditorium photo",
+        "dominantParadigm": "task",
+        "description": "Site search form and academic/events calendar module.",
+        "items": [
+          {
+            "label": "Search LAS",
+            "href": "/search/",
+            "paradigm": "task",
+            "conceptId": "contact-location"
+          },
+          {
+            "label": "Calendar",
+            "href": "/calendar/",
+            "paradigm": "topic",
+            "conceptId": "events-calendars"
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "zoneCount": 4,
+      "level1Count": 11,
+      "level2Count": 0,
+      "totalItems": 11,
+      "maxDepth": 1,
+      "paradigmCounts": {
+        "audience": 3,
+        "topic": 4,
+        "task": 4,
+        "hybrid": 0
+      },
+      "paradigmPercentages": {
+        "audience": 27,
+        "topic": 36,
+        "task": 36,
+        "hybrid": 0
+      },
+      "l1ParadigmPercentages": {
+        "audience": 27,
+        "topic": 36,
+        "task": 36,
+        "hybrid": 0
+      },
+      "audienceGatedPercentage": 27
+    },
+    "showcaseFoldImage": "screenshots/2005-fold.webp",
+    "showcaseFullImage": "screenshots/2005-full.webp",
+    "showcaseWaybackUrl": "https://web.archive.org/web/20051013063805/http://www.las.uiuc.edu:80/",
+    "showcaseCaptureDate": "2005-10-13"
+  },
+  {
+    "id": "iter-2008",
+    "number": 4,
+    "debutYear": 2008,
+    "endYear": 2013,
+    "yearSpanLabel": "2008–2013",
+    "title": "ATLAS Tableless Web-Standards Era",
+    "eraTagline": "Semantic zero-table CSS layout coinciding with the August 2008 campus cutover to illinois.edu",
+    "canonicalHost": "www.las.illinois.edu",
+    "urlEpochTransition": {
+      "fromHost": "www.las.uiuc.edu",
+      "toHost": "www.las.illinois.edu",
+      "year": 2008,
+      "note": "Launched alongside the campus-wide uiuc.edu → illinois.edu transition in August 2008; www.las.illinois.edu became canonical while www.las.uiuc.edu mirrored content until 301-redirecting in 2014."
+    },
+    "techSignature": "Semantic HTML/CSS (0 layout tables, /_includes/styles/screen.css by ATLAS Web Services)",
+    "visualSummary": "Deep teal, cream, charcoal-black, and Illini Orange editorial design featuring a black top topic bar with an orange \"GIVE TO LAS\" CTA tab, a large split hero montage with Alma Mater watermark, and angled orange audience tabs anchored directly below the college wordmark.",
+    "iaHeadline": "Clean two-tier separation: black institutional/giving top bar + high-contrast orange Audience Bar in the hero.",
+    "iaAnalysis": [
+      "Built by ATLAS Web Services using semantic, tableless CSS, the 2008 redesign streamlined homepage wayfinding back to shallow Level-1 hubs (removing the 45-link hover dropdown menus experimented with in 2006–2007). Institutional topics (\"Home | ABOUT LAS | NEWS | DEPARTMENTS & UNITS\") and an emphasized orange \"GIVE TO LAS\" button anchored the top black bar.",
+      "Visually, audience navigation received peak focal weight: rendered in bright Illini Orange tabs directly beneath the College of Liberal Arts & Sciences wordmark (\"for STUDENTS | ALUMNI | FACULTY & STAFF\"), drawing the eye immediately at the center of the viewport."
+    ],
+    "audienceNavCommentary": "Audience tabs acted as the visual centerpiece of the hero banner, reinforcing persona-first routing (\"for STUDENTS\", \"ALUMNI\", \"FACULTY & STAFF\") while still pooling prospective and current students into a single \"for STUDENTS\" tab.",
+    "intraEraDrift": [
+      {
+        "years": "2011–2013",
+        "summary": "Expanded the top black bar from 5 to 7 items: renamed \"NEWS\" to \"NEWS & RESEARCH\", shortened \"DEPARTMENTS & UNITS\" to \"UNITS\", and added dedicated dark-gray tabs for \"LATITUDES\" (international newsletter) and \"ONLINE EDUCATION\" beside \"GIVE TO LAS\"."
+      }
+    ],
+    "zones": [
+      {
+        "id": "2008-primary-top",
+        "name": "Top Institutional & Giving Bar",
+        "zoneType": "primary",
+        "placement": "Full-width black top bar with orange right-aligned CTA tab",
+        "dominantParadigm": "topic",
+        "description": "Core college sections paired with a high-contrast philanthropy tab.",
+        "items": [
+          {
+            "label": "Home",
+            "href": "/",
+            "paradigm": "topic",
+            "conceptId": "about-overview"
+          },
+          {
+            "label": "About LAS",
+            "href": "/about/",
+            "paradigm": "topic",
+            "conceptId": "about-overview"
+          },
+          {
+            "label": "News",
+            "href": "/news/",
+            "paradigm": "topic",
+            "conceptId": "news-publications"
+          },
+          {
+            "label": "Departments & Units",
+            "href": "/units/",
+            "paradigm": "topic",
+            "conceptId": "units-departments"
+          },
+          {
+            "label": "Give to LAS",
+            "href": "/giving/",
+            "paradigm": "task",
+            "conceptId": "giving-make-gift"
+          }
+        ]
+      },
+      {
+        "id": "2008-audience-hero",
+        "name": "Hero Orange Audience Tabs",
+        "zoneType": "audience-bar",
+        "placement": "Angled Illini Orange tab strip directly below the LAS wordmark",
+        "dominantParadigm": "audience",
+        "description": "High-salience persona bar routing students, alumni, and faculty/staff.",
+        "items": [
+          {
+            "label": "for Students",
+            "href": "/students/",
+            "paradigm": "audience",
+            "conceptId": "persona-students-parents"
+          },
+          {
+            "label": "Alumni",
+            "href": "/alumni/",
+            "paradigm": "audience",
+            "conceptId": "alumni-engagement"
+          },
+          {
+            "label": "Faculty & Staff",
+            "href": "/faculty/",
+            "paradigm": "audience",
+            "conceptId": "persona-faculty-staff"
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "zoneCount": 2,
+      "level1Count": 8,
+      "level2Count": 0,
+      "totalItems": 8,
+      "maxDepth": 1,
+      "paradigmCounts": {
+        "audience": 3,
+        "topic": 4,
+        "task": 1,
+        "hybrid": 0
+      },
+      "paradigmPercentages": {
+        "audience": 38,
+        "topic": 50,
+        "task": 13,
+        "hybrid": 0
+      },
+      "l1ParadigmPercentages": {
+        "audience": 38,
+        "topic": 50,
+        "task": 13,
+        "hybrid": 0
+      },
+      "audienceGatedPercentage": 38
+    },
+    "showcaseFoldImage": "screenshots/2008-fold.webp",
+    "showcaseFullImage": "screenshots/2008-full.webp",
+    "showcaseWaybackUrl": "https://web.archive.org/web/20081013193022/http://www.las.illinois.edu:80/",
+    "showcaseCaptureDate": "2008-10-13"
+  },
+  {
+    "id": "iter-2014",
+    "number": 5,
+    "debutYear": 2014,
+    "endYear": 2015,
+    "yearSpanLabel": "2014–2015",
+    "title": "Bootstrap Responsive & Peak Audience Mega-Menu",
+    "eraTagline": "Responsive grid debut where 100% of Primary Navigation was organized into four Audience mega-menus",
+    "canonicalHost": "www.las.illinois.edu",
+    "techSignature": "Bootstrap 3.1.1 + Font Awesome 4 + custom mega-menu (/las.css, /newnav.css)",
+    "visualSummary": "Dark charcoal architectural stone header with serif orange/white typography, compact top-right utility strip, dark translucent 4-persona mega-menu bar + social icons, and a boxed white container showcasing stacked wide feature banners.",
+    "iaHeadline": "High-water mark of Audience-Based IA: institutional topics moved into a compact utility strip so four personas could own the entire primary mega-menu.",
+    "iaAnalysis": [
+      "The 2014 responsive redesign inverted traditional university hierarchy. Institutional sections (\"About | News | Events | Units & Programs | Contact | Giving\") were compressed into a compact top-right utility strip, handing 100% of the primary navigation bar to four audience mega-menus: Prospective Students (12 links), Current Students (28 links), Alumni & Friends (10 links), and Faculty & Staff (17 links).",
+      "Crucially, LAS split its former unified \"Students\" tab into \"Prospective Students\" and \"Current Students\"—acknowledging diverging recruitment vs. enrolled-student needs—yet doing so via persona labels created duplicate destinations across menus (e.g., Majors, International/Global, and Honors appeared inside both Prospective and Current Student dropdowns)."
+    ],
+    "audienceNavCommentary": "This era exemplifies why higher-ed UX later reconsidered pure audience bars: 67 Level-2 links were partitioned strictly by persona, forcing visitors (e.g., a prospective parent, an intercollegiate transfer student, or a prospective grad/faculty visitor) to guess which persona bucket held academic programs or policies.",
+    "intraEraDrift": [
+      {
+        "years": "2015",
+        "summary": "Added hands-on learning and FAQ refinements inside the Prospective Students panel while maintaining identical 4-audience mega-menu and slate header geometry."
+      }
+    ],
+    "zones": [
+      {
+        "id": "2014-utility",
+        "name": "Top-Right Topic & Action Strip",
+        "zoneType": "utility-header",
+        "placement": "Compact dark strip in upper-right corner of header",
+        "dominantParadigm": "topic",
+        "description": "Institutional topics and giving compressed into a secondary utility bar.",
+        "items": [
+          {
+            "label": "Home",
+            "href": "/",
+            "paradigm": "topic",
+            "conceptId": "about-overview"
+          },
+          {
+            "label": "About",
+            "href": "/about/",
+            "paradigm": "topic",
+            "conceptId": "about-overview"
+          },
+          {
+            "label": "News",
+            "href": "/news/",
+            "paradigm": "topic",
+            "conceptId": "news-publications"
+          },
+          {
+            "label": "Events",
+            "href": "http://illinois.edu/calendar/list/1249",
+            "paradigm": "topic",
+            "conceptId": "events-calendars"
+          },
+          {
+            "label": "Units & Programs",
+            "href": "/units/",
+            "paradigm": "topic",
+            "conceptId": "units-departments"
+          },
+          {
+            "label": "Contact",
+            "href": "/contact/",
+            "paradigm": "task",
+            "conceptId": "contact-location"
+          },
+          {
+            "label": "Giving",
+            "href": "/giving/",
+            "paradigm": "task",
+            "conceptId": "giving-make-gift"
+          }
+        ]
+      },
+      {
+        "id": "2014-audience-megamenu",
+        "name": "Primary Audience Mega-Menu",
+        "zoneType": "audience-bar",
+        "placement": "Full-width primary horizontal bar with multi-column dropdown panels",
+        "dominantParadigm": "audience",
+        "description": "Four persona triggers housing all 67 deep navigation links.",
+        "items": [
+          {
+            "label": "Prospective Students",
+            "href": "/prospective/",
+            "paradigm": "audience",
+            "conceptId": "persona-students-parents",
+            "children": [
+              {
+                "label": "Explore Majors",
+                "href": "/students/programs/",
+                "paradigm": "topic",
+                "conceptId": "majors-programs"
+              },
+              {
+                "label": "Global Experience",
+                "href": "/students/international/",
+                "paradigm": "topic",
+                "conceptId": "study-abroad-global"
+              },
+              {
+                "label": "Honors Programs",
+                "href": "/students/honors/",
+                "paradigm": "topic",
+                "conceptId": "honors-scholarships"
+              },
+              {
+                "label": "Student Blogs",
+                "href": "/students/bloggers/",
+                "paradigm": "topic",
+                "conceptId": "prospective-faqs-blogs"
+              },
+              {
+                "label": "Campus Life",
+                "href": "http://admissions.illinois.edu/campuslife",
+                "paradigm": "topic",
+                "conceptId": "visit-campus"
+              },
+              {
+                "label": "Freshman Admissions",
+                "href": "http://admissions.illinois.edu/early/",
+                "paradigm": "task",
+                "conceptId": "admissions-apply"
+              },
+              {
+                "label": "Off-Campus Transfers",
+                "href": "http://www.admissions.illinois.edu/apply/requirements_transfer.html",
+                "paradigm": "task",
+                "conceptId": "transfer-pathways"
+              },
+              {
+                "label": "Intercollegiate Transfer",
+                "href": "/prospective/intercollegiate/",
+                "paradigm": "task",
+                "conceptId": "transfer-pathways"
+              },
+              {
+                "label": "Second Degree in LAS",
+                "href": "/prospective/second/",
+                "paradigm": "task",
+                "conceptId": "transfer-pathways"
+              },
+              {
+                "label": "Returning to LAS",
+                "href": "/prospective/returning/",
+                "paradigm": "task",
+                "conceptId": "transfer-pathways"
+              },
+              {
+                "label": "Re-Entry to LAS",
+                "href": "/prospective/reentry/",
+                "paradigm": "task",
+                "conceptId": "transfer-pathways"
+              },
+              {
+                "label": "Non-Degree",
+                "href": "http://admissions.illinois.edu/apply/app_nondegree.html",
+                "paradigm": "task",
+                "conceptId": "admissions-apply"
+              }
+            ]
+          },
+          {
+            "label": "Current Students",
+            "href": "/students/",
+            "paradigm": "audience",
+            "conceptId": "persona-students-parents",
+            "children": [
+              {
+                "label": "Dates & Deadlines",
+                "href": "/students/dates/",
+                "paradigm": "topic",
+                "conceptId": "policies-dates-forms"
+              },
+              {
+                "label": "Academic Advising",
+                "href": "/students/advising/",
+                "paradigm": "task",
+                "conceptId": "advising-support"
+              },
+              {
+                "label": "Majors & Minors",
+                "href": "/students/programs/",
+                "paradigm": "topic",
+                "conceptId": "majors-programs"
+              },
+              {
+                "label": "LAS Chalk Newsletter",
+                "href": "/students/laschalk/",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "U of I Course Information",
+                "href": "https://my.illinois.edu/",
+                "paradigm": "topic",
+                "conceptId": "courses-gened"
+              },
+              {
+                "label": "Graduation",
+                "href": "/students/graduation/",
+                "paradigm": "task",
+                "conceptId": "graduation-commencement"
+              },
+              {
+                "label": "Degree Requirements",
+                "href": "/students/requirements/",
+                "paradigm": "topic",
+                "conceptId": "courses-gened"
+              },
+              {
+                "label": "Course Guidelines",
+                "href": "/students/courses/",
+                "paradigm": "topic",
+                "conceptId": "courses-gened"
+              },
+              {
+                "label": "Academic Integrity",
+                "href": "/students/integrity/",
+                "paradigm": "topic",
+                "conceptId": "policies-dates-forms"
+              },
+              {
+                "label": "Attendance & Withdrawals",
+                "href": "/students/attendance/",
+                "paradigm": "topic",
+                "conceptId": "policies-dates-forms"
+              },
+              {
+                "label": "Get Student Forms",
+                "href": "/students/forms/",
+                "paradigm": "task",
+                "conceptId": "policies-dates-forms"
+              },
+              {
+                "label": "DARS Audit",
+                "href": "http://www.oar.uiuc.edu/current/dars/",
+                "paradigm": "task",
+                "conceptId": "graduation-commencement"
+              },
+              {
+                "label": "LAS OnLine Education",
+                "href": "http://www.lasonline.illinois.edu",
+                "paradigm": "topic",
+                "conceptId": "online-programs"
+              },
+              {
+                "label": "Career Development",
+                "href": "/students/career/",
+                "paradigm": "topic",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "International Programs",
+                "href": "/students/international/",
+                "paradigm": "topic",
+                "conceptId": "study-abroad-global"
+              },
+              {
+                "label": "Honors Programs",
+                "href": "/students/honors/",
+                "paradigm": "topic",
+                "conceptId": "honors-scholarships"
+              },
+              {
+                "label": "James Scholars",
+                "href": "/students/honors/james/",
+                "paradigm": "topic",
+                "conceptId": "honors-scholarships"
+              },
+              {
+                "label": "Scholarships",
+                "href": "/students/honors/scholarships/",
+                "paradigm": "topic",
+                "conceptId": "honors-scholarships"
+              },
+              {
+                "label": "LAS Distinction and Recognition",
+                "href": "/students/honors/recognition/",
+                "paradigm": "topic",
+                "conceptId": "honors-scholarships"
+              },
+              {
+                "label": "LAS 101",
+                "href": "/students/las101/",
+                "paradigm": "topic",
+                "conceptId": "first-year-wellness"
+              },
+              {
+                "label": "Access & Achievement Program",
+                "href": "/students/accessandachievement/",
+                "paradigm": "topic",
+                "conceptId": "first-year-wellness"
+              },
+              {
+                "label": "For Parents",
+                "href": "/students/parents/",
+                "paradigm": "audience",
+                "conceptId": "persona-students-parents"
+              }
+            ]
+          },
+          {
+            "label": "Alumni & Friends",
+            "href": "/alumni/",
+            "paradigm": "audience",
+            "conceptId": "alumni-engagement",
+            "children": [
+              {
+                "label": "Give to LAS",
+                "href": "/giving/",
+                "paradigm": "task",
+                "conceptId": "giving-make-gift"
+              },
+              {
+                "label": "Events",
+                "href": "/alumni/events/",
+                "paradigm": "topic",
+                "conceptId": "events-calendars"
+              },
+              {
+                "label": "Alumni Board",
+                "href": "/alumni/association/board/",
+                "paradigm": "topic",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "LAS Award Programs",
+                "href": "/alumni/awards/",
+                "paradigm": "topic",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "Get Involved",
+                "href": "/alumni/volunteer/",
+                "paradigm": "task",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "LASNews Magazine",
+                "href": "/alumni/magazine/",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "Class Notes",
+                "href": "/alumni/magazine/classnotes/",
+                "paradigm": "topic",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "Contact Us",
+                "href": "/alumni/contact/",
+                "paradigm": "task",
+                "conceptId": "contact-location"
+              },
+              {
+                "label": "Update Your Information",
+                "href": "/alumni/contact/form/",
+                "paradigm": "task",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "Get Our Newsletter",
+                "href": "/news/getnews/",
+                "paradigm": "task",
+                "conceptId": "news-publications"
+              }
+            ]
+          },
+          {
+            "label": "Faculty & Staff",
+            "href": "/faculty/",
+            "paradigm": "audience",
+            "conceptId": "persona-faculty-staff",
+            "children": [
+              {
+                "label": "Announcements",
+                "href": "/faculty/announcements/",
+                "paradigm": "topic",
+                "conceptId": "persona-faculty-staff"
+              },
+              {
+                "label": "Dates & Deadlines",
+                "href": "/faculty/dates/",
+                "paradigm": "topic",
+                "conceptId": "policies-dates-forms"
+              },
+              {
+                "label": "Annual Faculty Meeting",
+                "href": "/faculty/meetings/",
+                "paradigm": "topic",
+                "conceptId": "persona-faculty-staff"
+              },
+              {
+                "label": "Committees",
+                "href": "/faculty/committees/",
+                "paradigm": "topic",
+                "conceptId": "persona-faculty-staff"
+              },
+              {
+                "label": "Faculty Honors",
+                "href": "/faculty/honors/",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "Advising Toolbox",
+                "href": "/faculty/advising/",
+                "paradigm": "task",
+                "conceptId": "advising-support"
+              },
+              {
+                "label": "Courses Approval",
+                "href": "/faculty/courses/",
+                "paradigm": "task",
+                "conceptId": "courses-gened"
+              },
+              {
+                "label": "Curricula Approval",
+                "href": "/faculty/curricula/",
+                "paradigm": "task",
+                "conceptId": "courses-gened"
+              },
+              {
+                "label": "General Education Proposals",
+                "href": "/faculty/gened/",
+                "paradigm": "task",
+                "conceptId": "courses-gened"
+              },
+              {
+                "label": "Faculty Policy Manual",
+                "href": "/faculty/policies/",
+                "paradigm": "topic",
+                "conceptId": "persona-faculty-staff"
+              },
+              {
+                "label": "Employment at LAS",
+                "href": "/faculty/jobs/",
+                "paradigm": "task",
+                "conceptId": "persona-faculty-staff"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "zoneCount": 2,
+      "level1Count": 11,
+      "level2Count": 55,
+      "totalItems": 66,
+      "maxDepth": 2,
+      "paradigmCounts": {
+        "audience": 5,
+        "topic": 38,
+        "task": 23,
+        "hybrid": 0
+      },
+      "paradigmPercentages": {
+        "audience": 8,
+        "topic": 58,
+        "task": 35,
+        "hybrid": 0
+      },
+      "l1ParadigmPercentages": {
+        "audience": 36,
+        "topic": 45,
+        "task": 18,
+        "hybrid": 0
+      },
+      "audienceGatedPercentage": 89
+    },
+    "showcaseFoldImage": "screenshots/2014-fold.webp",
+    "showcaseFullImage": "screenshots/2014-full.webp",
+    "showcaseWaybackUrl": "https://web.archive.org/web/20141004092528/http://www.las.illinois.edu:80/",
+    "showcaseCaptureDate": "2014-10-04"
+  },
+  {
+    "id": "iter-2016",
+    "number": 6,
+    "debutYear": 2016,
+    "endYear": 2018,
+    "yearSpanLabel": "2016–2018",
+    "title": "Illini Orange Banner & Card-Grid Refresh",
+    "eraTagline": "Modernized brand-orange header and editorial card grid retaining the 4-persona mega-menu structure",
+    "canonicalHost": "www.las.illinois.edu",
+    "techSignature": "Bootstrap 3.1.1 + refreshed full-bleed orange brand header & card grid",
+    "visualSummary": "Clean white utility bar with an oversized orange \"GIVE to LAS\" button, bold full-width Illini Orange masthead, dark navy 4-persona mega-menu + inline search trigger, and an open white background featuring a 3-column LAS News card grid.",
+    "iaHeadline": "Visual modernization over an unchanged Audience Mega-Menu—exposing the limits of persona-bucketed IA.",
+    "iaAnalysis": [
+      "While 2016 overhauled the homepage’s visual lightness—trading dark stone textures for a crisp white utility header, vibrant Illini Orange brand band, and structured card grid—it preserved 2014’s exact two-bar split: institutional links in the white top utility bar (\"About | News | Calendar | Units | Contact | GIVE to LAS\") and the four audience buckets in the dark navy primary mega-menu.",
+      "Prospective recruitment content expanded inside the \"Prospective students\" dropdown (adding Hands-on learning, Prospective FAQ, Admitted student FAQ, LAS Insider blog, and Summer programs), signaling growing recruitment pressure inside a menu still shared equally with internal faculty/staff governance."
+    ],
+    "audienceNavCommentary": "This was the final LAS iteration to organize primary navigation around user personas (\"Prospective students | Current students | Alumni and friends | Faculty and staff\") before the 2019 paradigm shift to topic- and task-driven IA.",
+    "intraEraDrift": [
+      {
+        "years": "2017–2018",
+        "summary": "Replaced \"Contact\" with \"Directory\" in the white top utility bar and updated the header brand mark from the boxed column-I to the modern Illinois wordmark in 2018."
+      }
+    ],
+    "zones": [
+      {
+        "id": "2016-utility",
+        "name": "White Top Utility & Giving Bar",
+        "zoneType": "utility-header",
+        "placement": "Full-width white top bar above the orange brand masthead",
+        "dominantParadigm": "topic",
+        "description": "High-visibility institutional links paired with a prominent orange \"GIVE to LAS\" button.",
+        "items": [
+          {
+            "label": "About",
+            "href": "/about/",
+            "paradigm": "topic",
+            "conceptId": "about-overview"
+          },
+          {
+            "label": "News",
+            "href": "/news/archive/",
+            "paradigm": "topic",
+            "conceptId": "news-publications"
+          },
+          {
+            "label": "Calendar",
+            "href": "http://illinois.edu/calendar/list/1249",
+            "paradigm": "topic",
+            "conceptId": "events-calendars"
+          },
+          {
+            "label": "Units",
+            "href": "/units/",
+            "paradigm": "topic",
+            "conceptId": "units-departments"
+          },
+          {
+            "label": "Contact",
+            "href": "/contact/",
+            "paradigm": "task",
+            "conceptId": "contact-location"
+          },
+          {
+            "label": "GIVE to LAS",
+            "href": "/giving/",
+            "paradigm": "task",
+            "conceptId": "giving-make-gift"
+          }
+        ]
+      },
+      {
+        "id": "2016-audience-megamenu",
+        "name": "Navy Primary Audience Mega-Menu",
+        "zoneType": "audience-bar",
+        "placement": "Dark navy horizontal bar beneath the Illini Orange masthead",
+        "dominantParadigm": "audience",
+        "description": "Four persona dropdown triggers plus integrated search.",
+        "items": [
+          {
+            "label": "Prospective students",
+            "href": "/prospective/",
+            "paradigm": "audience",
+            "conceptId": "persona-students-parents",
+            "children": [
+              {
+                "label": "Explore majors",
+                "href": "/prospective/majors/",
+                "paradigm": "topic",
+                "conceptId": "majors-programs"
+              },
+              {
+                "label": "Global experience",
+                "href": "/students/international/",
+                "paradigm": "topic",
+                "conceptId": "study-abroad-global"
+              },
+              {
+                "label": "Hands-on learning",
+                "href": "/prospective/experience/",
+                "paradigm": "topic",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "Honors programs",
+                "href": "/students/honors/",
+                "paradigm": "topic",
+                "conceptId": "honors-scholarships"
+              },
+              {
+                "label": "Prospective FAQ",
+                "href": "/prospective/faq/",
+                "paradigm": "topic",
+                "conceptId": "prospective-faqs-blogs"
+              },
+              {
+                "label": "Admitted student FAQ",
+                "href": "/prospective/admitted/",
+                "paradigm": "topic",
+                "conceptId": "prospective-faqs-blogs"
+              },
+              {
+                "label": "LAS Insider blog",
+                "href": "/prospective/insider/",
+                "paradigm": "topic",
+                "conceptId": "prospective-faqs-blogs"
+              },
+              {
+                "label": "Summer programs",
+                "href": "/prospective/summer/",
+                "paradigm": "topic",
+                "conceptId": "prospective-faqs-blogs"
+              },
+              {
+                "label": "Campus life",
+                "href": "http://admissions.illinois.edu/campuslife",
+                "paradigm": "topic",
+                "conceptId": "visit-campus"
+              },
+              {
+                "label": "Freshman admissions",
+                "href": "http://admissions.illinois.edu/apply",
+                "paradigm": "task",
+                "conceptId": "admissions-apply"
+              },
+              {
+                "label": "Off-campus transfers",
+                "href": "http://admissions.illinois.edu/apply/requirements_transfer.html",
+                "paradigm": "task",
+                "conceptId": "transfer-pathways"
+              },
+              {
+                "label": "Intercollegiate transfer",
+                "href": "/prospective/intercollegiate/",
+                "paradigm": "task",
+                "conceptId": "transfer-pathways"
+              }
+            ]
+          },
+          {
+            "label": "Current students",
+            "href": "/students/",
+            "paradigm": "audience",
+            "conceptId": "persona-students-parents",
+            "children": [
+              {
+                "label": "Dates and deadlines",
+                "href": "/students/dates/",
+                "paradigm": "topic",
+                "conceptId": "policies-dates-forms"
+              },
+              {
+                "label": "Academic advising",
+                "href": "/students/advising/",
+                "paradigm": "task",
+                "conceptId": "advising-support"
+              },
+              {
+                "label": "Majors and minors",
+                "href": "/students/programs/",
+                "paradigm": "topic",
+                "conceptId": "majors-programs"
+              },
+              {
+                "label": "LAS Lineup newsletter",
+                "href": "/students/laslineup/",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "U of I course information",
+                "href": "https://courses.illinois.edu/",
+                "paradigm": "topic",
+                "conceptId": "courses-gened"
+              },
+              {
+                "label": "Graduation",
+                "href": "/students/graduation/",
+                "paradigm": "task",
+                "conceptId": "graduation-commencement"
+              },
+              {
+                "label": "Student organizations",
+                "href": "/students/organizations/",
+                "paradigm": "topic",
+                "conceptId": "first-year-wellness"
+              },
+              {
+                "label": "Degree requirements",
+                "href": "/students/requirements/",
+                "paradigm": "topic",
+                "conceptId": "courses-gened"
+              },
+              {
+                "label": "Get Student forms",
+                "href": "/students/forms/",
+                "paradigm": "task",
+                "conceptId": "policies-dates-forms"
+              },
+              {
+                "label": "LAS onLine education",
+                "href": "http://lasonline.illinois.edu/",
+                "paradigm": "topic",
+                "conceptId": "online-programs"
+              },
+              {
+                "label": "Career development",
+                "href": "/students/career/",
+                "paradigm": "topic",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "International programs",
+                "href": "/students/international/",
+                "paradigm": "topic",
+                "conceptId": "study-abroad-global"
+              },
+              {
+                "label": "Honors programs",
+                "href": "/students/honors/",
+                "paradigm": "topic",
+                "conceptId": "honors-scholarships"
+              },
+              {
+                "label": "LAS scholarships",
+                "href": "/students/scholarships/",
+                "paradigm": "topic",
+                "conceptId": "honors-scholarships"
+              },
+              {
+                "label": "LAS 101",
+                "href": "/students/las101/",
+                "paradigm": "topic",
+                "conceptId": "first-year-wellness"
+              },
+              {
+                "label": "Access and Achievement Program",
+                "href": "/students/aap/",
+                "paradigm": "topic",
+                "conceptId": "first-year-wellness"
+              },
+              {
+                "label": "For parents",
+                "href": "/students/parents/",
+                "paradigm": "audience",
+                "conceptId": "persona-students-parents"
+              }
+            ]
+          },
+          {
+            "label": "Alumni and friends",
+            "href": "/alumni/",
+            "paradigm": "audience",
+            "conceptId": "alumni-engagement",
+            "children": [
+              {
+                "label": "Give to LAS",
+                "href": "/giving/",
+                "paradigm": "task",
+                "conceptId": "giving-make-gift"
+              },
+              {
+                "label": "Events",
+                "href": "/alumni/events/",
+                "paradigm": "topic",
+                "conceptId": "events-calendars"
+              },
+              {
+                "label": "Alumni board",
+                "href": "/alumni/board/",
+                "paradigm": "topic",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "LAS Award programs",
+                "href": "/alumni/awards/",
+                "paradigm": "topic",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "Get involved",
+                "href": "/alumni/volunteer/",
+                "paradigm": "task",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "LASNews magazine",
+                "href": "/alumni/magazine/",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "Alumni careers",
+                "href": "/alumni/careers/",
+                "paradigm": "topic",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "Contact us",
+                "href": "/alumni/contact/",
+                "paradigm": "task",
+                "conceptId": "contact-location"
+              },
+              {
+                "label": "Update your information",
+                "href": "/alumni/update/",
+                "paradigm": "task",
+                "conceptId": "alumni-engagement"
+              }
+            ]
+          },
+          {
+            "label": "Faculty and staff",
+            "href": "/faculty/",
+            "paradigm": "audience",
+            "conceptId": "persona-faculty-staff",
+            "children": [
+              {
+                "label": "Announcements",
+                "href": "/faculty/announcements/",
+                "paradigm": "topic",
+                "conceptId": "persona-faculty-staff"
+              },
+              {
+                "label": "Dates and deadlines",
+                "href": "/faculty/dates/",
+                "paradigm": "topic",
+                "conceptId": "policies-dates-forms"
+              },
+              {
+                "label": "Annual faculty meeting",
+                "href": "/faculty/meetings/",
+                "paradigm": "topic",
+                "conceptId": "persona-faculty-staff"
+              },
+              {
+                "label": "Committees",
+                "href": "/faculty/committees/",
+                "paradigm": "topic",
+                "conceptId": "persona-faculty-staff"
+              },
+              {
+                "label": "Faculty honors",
+                "href": "/faculty/honors/",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "Advising toolbox",
+                "href": "/faculty/advising/",
+                "paradigm": "task",
+                "conceptId": "advising-support"
+              },
+              {
+                "label": "Courses approval",
+                "href": "/faculty/courses/",
+                "paradigm": "task",
+                "conceptId": "courses-gened"
+              },
+              {
+                "label": "Curricula approval",
+                "href": "/faculty/curricula/",
+                "paradigm": "task",
+                "conceptId": "courses-gened"
+              },
+              {
+                "label": "Faculty policy manual",
+                "href": "/faculty/policies/",
+                "paradigm": "topic",
+                "conceptId": "persona-faculty-staff"
+              },
+              {
+                "label": "Employment at LAS",
+                "href": "/faculty/jobs/",
+                "paradigm": "task",
+                "conceptId": "persona-faculty-staff"
+              },
+              {
+                "label": "Hiring procedures",
+                "href": "/faculty/hiring/",
+                "paradigm": "task",
+                "conceptId": "persona-faculty-staff"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "zoneCount": 2,
+      "level1Count": 10,
+      "level2Count": 49,
+      "totalItems": 59,
+      "maxDepth": 2,
+      "paradigmCounts": {
+        "audience": 5,
+        "topic": 37,
+        "task": 17,
+        "hybrid": 0
+      },
+      "paradigmPercentages": {
+        "audience": 8,
+        "topic": 63,
+        "task": 29,
+        "hybrid": 0
+      },
+      "l1ParadigmPercentages": {
+        "audience": 40,
+        "topic": 40,
+        "task": 20,
+        "hybrid": 0
+      },
+      "audienceGatedPercentage": 90
+    },
+    "showcaseFoldImage": "screenshots/2016-fold.webp",
+    "showcaseFullImage": "screenshots/2016-full.webp",
+    "showcaseWaybackUrl": "https://web.archive.org/web/20161011163418/http://www.las.illinois.edu/",
+    "showcaseCaptureDate": "2016-10-11"
+  },
+  {
+    "id": "iter-2019",
+    "number": 7,
+    "debutYear": 2019,
+    "endYear": 2020,
+    "yearSpanLabel": "2019–2020",
+    "title": "Drupal 8 Overhaul & \"I Want To...\" Task Architecture",
+    "eraTagline": "Retirement of the Audience Mega-Menu in favor of Topic navigation + verb-led task shortcuts on bare HTTPS las.illinois.edu",
+    "canonicalHost": "las.illinois.edu",
+    "urlEpochTransition": {
+      "fromHost": "www.las.illinois.edu",
+      "toHost": "las.illinois.edu",
+      "year": 2019,
+      "note": "Cut over to canonical bare-domain HTTPS (https://las.illinois.edu/), with www.las.illinois.edu 301-redirecting to las.illinois.edu."
+    },
+    "techSignature": "Drupal 8 custom theme (college_of_las, Roboto typography, companion mega-panels)",
+    "visualSummary": "Two-tone navy and Illini Orange masthead with an interactive \"I want to...\" task trigger beside search, a royal-blue 8-item uppercase primary bar (\"ABOUT | ADMISSIONS | ACADEMICS | LIFE + CAREER DESIGN | RESEARCH | ALUMNI | NEWS | GIVE NOW\"), and full-bleed hero storytelling.",
+    "iaHeadline": "Watershed IA pivot: Audience-Based Primary Navigation retired after 18 years, replaced by Topic domains + verb-first student tasks.",
+    "iaAnalysis": [
+      "Migrating to Drupal 8 on canonical https://las.illinois.edu/ brought the biggest structural rethink in LAS web history. The 4-persona mega-menu disappeared overnight, replaced by an 8-item domain/action bar: About, Admissions, Academics, Life + Career Design, Research, Alumni, News, and Give now. Notice how \"Research\" returned to Level-1 visibility for the first time since 2000!",
+      "To bridge common high-intent journeys without bringing back persona tabs, the header introduced a verb-led \"I want to...\" task menu (\"Apply to LAS | Transfer into LAS | Find forms | Find my advisor | Learn about majors | Give to Illinois\")—every single item framed as a user action rather than an identity."
+    ],
+    "audienceNavCommentary": "Internal campus audiences (\"Faculty & Staff\") were deliberately removed from primary and header navigation entirely and relocated to a dedicated \"Resources for faculty and staff\" footer menu—initiating LAS’s modern recruitment-and-external focus in header wayfinding.",
+    "intraEraDrift": [
+      {
+        "years": "2020",
+        "summary": "Added \"Welcome from the Dean\", \"Diversity and inclusion\" under About, and pandemic academic continuity links while preserving the \"I want to...\" task menu and 8-item primary bar."
+      }
+    ],
+    "zones": [
+      {
+        "id": "2019-task-utility",
+        "name": "\"I Want To...\" Task Utility Menu",
+        "zoneType": "utility-header",
+        "placement": "Upper-right orange header band next to site search",
+        "dominantParadigm": "task",
+        "description": "Verb-first action menu targeting prospective/current student tasks and giving.",
+        "items": [
+          {
+            "label": "I want to...",
+            "href": "#sub-nav",
+            "paradigm": "task",
+            "conceptId": "admissions-apply",
+            "children": [
+              {
+                "label": "Apply to LAS",
+                "href": "/admissions/attendillinois",
+                "paradigm": "task",
+                "conceptId": "admissions-apply"
+              },
+              {
+                "label": "Transfer into LAS",
+                "href": "/admissions/intercollegiate",
+                "paradigm": "task",
+                "conceptId": "transfer-pathways"
+              },
+              {
+                "label": "Find forms",
+                "href": "/academics/forms",
+                "paradigm": "task",
+                "conceptId": "policies-dates-forms"
+              },
+              {
+                "label": "Find my advisor",
+                "href": "/academics/advising",
+                "paradigm": "task",
+                "conceptId": "advising-support"
+              },
+              {
+                "label": "Learn about majors",
+                "href": "/admissions/exploremajors",
+                "paradigm": "task",
+                "conceptId": "majors-programs"
+              },
+              {
+                "label": "Give to Illinois",
+                "href": "/giving",
+                "paradigm": "task",
+                "conceptId": "giving-make-gift"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "2019-primary",
+        "name": "Primary Domain Mega-Menu",
+        "zoneType": "primary",
+        "placement": "Royal-blue full-width horizontal navigation bar",
+        "dominantParadigm": "topic",
+        "description": "Eight-section primary navigation organized by subject domain plus Alumni and Give Now.",
+        "items": [
+          {
+            "label": "About",
+            "href": "/about",
+            "paradigm": "topic",
+            "conceptId": "about-overview",
+            "children": [
+              {
+                "label": "Statement on Diversity",
+                "href": "/about/diversity",
+                "paradigm": "topic",
+                "conceptId": "diversity-inclusion"
+              },
+              {
+                "label": "Fast facts",
+                "href": "/about/facts",
+                "paradigm": "topic",
+                "conceptId": "about-overview"
+              },
+              {
+                "label": "Notable alumni",
+                "href": "/about/notablealumni",
+                "paradigm": "topic",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "Accessibility",
+                "href": "/about/accessibility",
+                "paradigm": "topic",
+                "conceptId": "about-overview"
+              },
+              {
+                "label": "College leadership",
+                "href": "/about/leadership",
+                "paradigm": "topic",
+                "conceptId": "leadership-directory"
+              },
+              {
+                "label": "Directory",
+                "href": "/directory",
+                "paradigm": "task",
+                "conceptId": "leadership-directory"
+              },
+              {
+                "label": "LAS departments, units, and programs",
+                "href": "/academics/units",
+                "paradigm": "topic",
+                "conceptId": "units-departments"
+              },
+              {
+                "label": "LAS history",
+                "href": "/about/history",
+                "paradigm": "topic",
+                "conceptId": "about-overview"
+              }
+            ]
+          },
+          {
+            "label": "Admissions",
+            "href": "/admissions",
+            "paradigm": "topic",
+            "conceptId": "admissions-apply",
+            "children": [
+              {
+                "label": "Apply to LAS",
+                "href": "/admissions/attendillinois",
+                "paradigm": "task",
+                "conceptId": "admissions-apply"
+              },
+              {
+                "label": "Explore LAS majors",
+                "href": "/admissions/exploremajors",
+                "paradigm": "topic",
+                "conceptId": "majors-programs"
+              },
+              {
+                "label": "Admitted student FAQ",
+                "href": "/admissions/admittedfaq",
+                "paradigm": "topic",
+                "conceptId": "prospective-faqs-blogs"
+              },
+              {
+                "label": "Prospective student FAQ",
+                "href": "/admissions/prospectivefaq",
+                "paradigm": "topic",
+                "conceptId": "prospective-faqs-blogs"
+              },
+              {
+                "label": "Pre-college summer programs",
+                "href": "/admissions/summer",
+                "paradigm": "topic",
+                "conceptId": "prospective-faqs-blogs"
+              },
+              {
+                "label": "FAQ on CS + X majors",
+                "href": "/admissions/faqcsx",
+                "paradigm": "topic",
+                "conceptId": "prospective-faqs-blogs"
+              },
+              {
+                "label": "LAS Insider blog",
+                "href": "/admissions/lasinsider",
+                "paradigm": "topic",
+                "conceptId": "prospective-faqs-blogs"
+              }
+            ]
+          },
+          {
+            "label": "Academics",
+            "href": "/academics",
+            "paradigm": "topic",
+            "conceptId": "majors-programs",
+            "children": [
+              {
+                "label": "Academic policies and standing",
+                "href": "/academics/rules",
+                "paradigm": "topic",
+                "conceptId": "policies-dates-forms"
+              },
+              {
+                "label": "Academic Workshops",
+                "href": "/academics/workshops",
+                "paradigm": "topic",
+                "conceptId": "advising-support"
+              },
+              {
+                "label": "Access and Achievement Program",
+                "href": "/academics/aap",
+                "paradigm": "topic",
+                "conceptId": "first-year-wellness"
+              },
+              {
+                "label": "Advising and support",
+                "href": "/academics/advising",
+                "paradigm": "task",
+                "conceptId": "advising-support"
+              },
+              {
+                "label": "College distinctions",
+                "href": "/academics/distinctions",
+                "paradigm": "topic",
+                "conceptId": "honors-scholarships"
+              },
+              {
+                "label": "Dates and deadlines",
+                "href": "/academics/dates",
+                "paradigm": "topic",
+                "conceptId": "policies-dates-forms"
+              },
+              {
+                "label": "Graduation",
+                "href": "/academics/graduation",
+                "paradigm": "task",
+                "conceptId": "graduation-commencement"
+              },
+              {
+                "label": "Honors Program",
+                "href": "/academics/honors",
+                "paradigm": "topic",
+                "conceptId": "honors-scholarships"
+              },
+              {
+                "label": "International programs",
+                "href": "/academics/international",
+                "paradigm": "topic",
+                "conceptId": "study-abroad-global"
+              },
+              {
+                "label": "LAS Lineup student newsletter",
+                "href": "/academics/laslineup",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "LAS departments",
+                "href": "/academics/units",
+                "paradigm": "topic",
+                "conceptId": "units-departments"
+              },
+              {
+                "label": "Programs of study",
+                "href": "/academics/programs",
+                "paradigm": "topic",
+                "conceptId": "majors-programs"
+              },
+              {
+                "label": "Scholarships",
+                "href": "/academics/scholarships",
+                "paradigm": "topic",
+                "conceptId": "honors-scholarships"
+              },
+              {
+                "label": "Program Change Requests",
+                "href": "/academics/forms",
+                "paradigm": "task",
+                "conceptId": "policies-dates-forms"
+              }
+            ]
+          },
+          {
+            "label": "Life + Career Design",
+            "href": "/lifecareerdesign",
+            "paradigm": "topic",
+            "conceptId": "career-internships",
+            "children": [
+              {
+                "label": "Apply to be an LAS intern",
+                "href": "/lifecareerdesign/internships",
+                "paradigm": "task",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "Core courses",
+                "href": "/lifecareerdesign/classes",
+                "paradigm": "topic",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "E-portfolios",
+                "href": "/lifecareerdesign/eportfolio",
+                "paradigm": "topic",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "Get started",
+                "href": "/lifecareerdesign/questions",
+                "paradigm": "task",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "Job search tools",
+                "href": "/lifecareerdesign/jobsearch",
+                "paradigm": "task",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "LAS Success workshops",
+                "href": "/lifecareerdesign/lassuccess",
+                "paradigm": "topic",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "Leadership opportunities",
+                "href": "/lifecareerdesign/leadership",
+                "paradigm": "topic",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "Life + Career Design Lab",
+                "href": "/lifecareerdesign/lab",
+                "paradigm": "topic",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "Mapping your future",
+                "href": "/lifecareerdesign/map",
+                "paradigm": "topic",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "Service opportunities",
+                "href": "/lifecareerdesign/service",
+                "paradigm": "topic",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "Wellness resources",
+                "href": "/lifecareerdesign/wellness",
+                "paradigm": "topic",
+                "conceptId": "first-year-wellness"
+              }
+            ]
+          },
+          {
+            "label": "Research",
+            "href": "/research",
+            "paradigm": "topic",
+            "conceptId": "research-centers",
+            "children": [
+              {
+                "label": "Graduate research opportunities",
+                "href": "/research/graduate",
+                "paradigm": "topic",
+                "conceptId": "research-centers"
+              },
+              {
+                "label": "Health and LAS",
+                "href": "/research/health",
+                "paradigm": "topic",
+                "conceptId": "research-centers"
+              },
+              {
+                "label": "LAS Experts",
+                "href": "/research/experts",
+                "paradigm": "topic",
+                "conceptId": "research-centers"
+              },
+              {
+                "label": "Research facilities and centers",
+                "href": "/research/centers",
+                "paradigm": "topic",
+                "conceptId": "research-centers"
+              },
+              {
+                "label": "Undergraduate research",
+                "href": "/research/undergraduate",
+                "paradigm": "topic",
+                "conceptId": "research-centers"
+              },
+              {
+                "label": "Dean's Distinguished Lecture series",
+                "href": "/research/deanslecture",
+                "paradigm": "topic",
+                "conceptId": "events-calendars"
+              }
+            ]
+          },
+          {
+            "label": "Alumni",
+            "href": "/alumni",
+            "paradigm": "audience",
+            "conceptId": "alumni-engagement",
+            "children": [
+              {
+                "label": "Alumni advice",
+                "href": "/alumni/advice",
+                "paradigm": "topic",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "Alumni award programs",
+                "href": "/alumni/awards",
+                "paradigm": "topic",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "Events",
+                "href": "/alumni/events",
+                "paradigm": "topic",
+                "conceptId": "events-calendars"
+              },
+              {
+                "label": "Get involved",
+                "href": "/alumni/volunteer",
+                "paradigm": "task",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "LAS Alumni Association",
+                "href": "/alumni/association",
+                "paradigm": "topic",
+                "conceptId": "alumni-engagement"
+              }
+            ]
+          },
+          {
+            "label": "News",
+            "href": "/news",
+            "paradigm": "topic",
+            "conceptId": "news-publications",
+            "children": [
+              {
+                "label": "Faculty honors",
+                "href": "/news/faculty-honors",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "LAS News email newsletter archive",
+                "href": "/news/newsletter",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "LAS News magazine",
+                "href": "/news/magazine",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "LAS social media",
+                "href": "/news/socialmedia",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "Media contact in the College of LAS",
+                "href": "/news/media",
+                "paradigm": "task",
+                "conceptId": "news-publications"
+              }
+            ]
+          },
+          {
+            "label": "Give now",
+            "href": "/giving",
+            "paradigm": "task",
+            "conceptId": "giving-make-gift"
+          }
+        ]
+      }
+    ],
+    "footerDisplaced": {
+      "heading": "Resources for faculty and staff",
+      "formerZone": "Primary Audience Mega-Menu (2014–2018)",
+      "rationale": "Removed from primary navigation so header wayfinding could focus on prospective/student journeys and public academic domains, relocating internal faculty/staff governance links to a dedicated footer block.",
+      "items": [
+        {
+          "label": "Resources for faculty and staff",
+          "href": "/faculty",
+          "paradigm": "audience",
+          "conceptId": "persona-faculty-staff"
+        },
+        {
+          "label": "Advising toolbox",
+          "href": "/faculty/advising",
+          "paradigm": "task",
+          "conceptId": "advising-support"
+        },
+        {
+          "label": "Dates and deadlines",
+          "href": "/faculty/dates",
+          "paradigm": "topic",
+          "conceptId": "policies-dates-forms"
+        },
+        {
+          "label": "Courses",
+          "href": "/faculty/courses",
+          "paradigm": "task",
+          "conceptId": "courses-gened"
+        },
+        {
+          "label": "Curricula",
+          "href": "/faculty/curricula",
+          "paradigm": "task",
+          "conceptId": "courses-gened"
+        }
+      ]
+    },
+    "metrics": {
+      "zoneCount": 2,
+      "level1Count": 9,
+      "level2Count": 62,
+      "totalItems": 71,
+      "maxDepth": 2,
+      "paradigmCounts": {
+        "audience": 1,
+        "topic": 52,
+        "task": 18,
+        "hybrid": 0
+      },
+      "paradigmPercentages": {
+        "audience": 1,
+        "topic": 73,
+        "task": 25,
+        "hybrid": 0
+      },
+      "l1ParadigmPercentages": {
+        "audience": 11,
+        "topic": 67,
+        "task": 22,
+        "hybrid": 0
+      },
+      "audienceGatedPercentage": 8
+    },
+    "showcaseFoldImage": "screenshots/2019-fold.webp",
+    "showcaseFullImage": "screenshots/2019-full.webp",
+    "showcaseWaybackUrl": "https://web.archive.org/web/20191014015632/https://las.illinois.edu/",
+    "showcaseCaptureDate": "2019-10-14"
+  },
+  {
+    "id": "iter-2021",
+    "number": 8,
+    "debutYear": 2021,
+    "endYear": 2024,
+    "yearSpanLabel": "2021–2024",
+    "title": "Campus Block-I Masthead & Recruitment CTA Consolidation",
+    "eraTagline": "White campus-aligned header condensing utility links to two conversion pills: \"Apply to LAS\" and \"Make a gift\"",
+    "canonicalHost": "las.illinois.edu",
+    "techSignature": "Drupal 8 → 9 → 10 (refreshed college_of_las theme with campus Block-I banner)",
+    "visualSummary": "Clean white masthead anchored by the navy University of Illinois Urbana-Champaign top ribbon, orange Block-I + College of Liberal Arts & Sciences wordmark, two pill CTAs (\"Apply to LAS\", \"Make a gift\"), light-gray title-case primary menu bar, and duotone campaign storytelling.",
+    "iaHeadline": "Sharpened conversion hierarchy: utility header distilled down to recruitment (\"Apply to LAS\") and philanthropy (\"Make a gift\").",
+    "iaAnalysis": [
+      "The 2021 visual overhaul aligned LAS with campus Block-I branding while simplifying header choices. The 6-link \"I want to...\" dropdown was retired in favor of two high-contrast pill buttons in the upper masthead—\"Apply to LAS\" and \"Make a gift\"—eliminating secondary clutter around the college’s top two external conversion goals.",
+      "In the primary bar, internal branding jargon (\"Life + Career Design\") was renamed to plain-language \"Career readiness\" (and broadened again in 2023 to \"Student resources\" to offload non-curricular items from an overcrowded 16-link Academics menu), while \"Give now\" expanded into a full 8-item \"Giving\" dropdown."
+    ],
+    "audienceNavCommentary": "Internal faculty/staff navigation stayed intentionally out of Level-1 primary navigation (anchored in the \"Resources for faculty and staff\" footer menu, supplemented by a single secondary \"Faculty and staff resources\" link inside the About dropdown—and \"Parent resources\" added inside Admissions in 2023).",
+    "intraEraDrift": [
+      {
+        "years": "2023–2024",
+        "summary": "Broadened L1 \"Career readiness\" into \"Student resources\" (/resources), migrating Honors, International programs, Access & Achievement, and First-Year Experience out of Academics; added \"Intercollegiate transfers\" and \"Forms\" to Academics, \"Parent resources\" to Admissions, and updated DEI naming to \"Inclusive Excellence\" (2024) as the site upgraded through Drupal 9 and Drupal 10."
+      }
+    ],
+    "zones": [
+      {
+        "id": "2021-utility",
+        "name": "Masthead Conversion Pill CTAs",
+        "zoneType": "utility-header",
+        "placement": "Upper-right white masthead beside Block-I college title",
+        "dominantParadigm": "task",
+        "description": "Distilled two-button utility zone focused strictly on student applications and donor giving.",
+        "items": [
+          {
+            "label": "Apply to LAS",
+            "href": "/admissions/attendillinois",
+            "paradigm": "task",
+            "conceptId": "admissions-apply"
+          },
+          {
+            "label": "Make a gift",
+            "href": "/giving",
+            "paradigm": "task",
+            "conceptId": "giving-make-gift"
+          }
+        ]
+      },
+      {
+        "id": "2021-primary",
+        "name": "Light-Gray Primary Menu Bar",
+        "zoneType": "primary",
+        "placement": "Full-width light-gray horizontal bar below the white masthead",
+        "dominantParadigm": "topic",
+        "description": "Eight title-case dropdown menus plus right-aligned search toggle.",
+        "items": [
+          {
+            "label": "About",
+            "href": "/about",
+            "paradigm": "topic",
+            "conceptId": "about-overview",
+            "children": [
+              {
+                "label": "Departments, units, and programs",
+                "href": "/about/units",
+                "paradigm": "topic",
+                "conceptId": "units-departments"
+              },
+              {
+                "label": "Fast facts",
+                "href": "/about/facts",
+                "paradigm": "topic",
+                "conceptId": "about-overview"
+              },
+              {
+                "label": "College leadership",
+                "href": "/about/leadership",
+                "paradigm": "topic",
+                "conceptId": "leadership-directory"
+              },
+              {
+                "label": "Directory",
+                "href": "/directory",
+                "paradigm": "task",
+                "conceptId": "leadership-directory"
+              },
+              {
+                "label": "LAS Strategic Plan",
+                "href": "/about/strategicplan",
+                "paradigm": "topic",
+                "conceptId": "about-overview"
+              },
+              {
+                "label": "Faculty and staff resources",
+                "href": "/faculty",
+                "paradigm": "audience",
+                "conceptId": "persona-faculty-staff"
+              },
+              {
+                "label": "Diversity and inclusion",
+                "href": "/about/diversity",
+                "paradigm": "topic",
+                "conceptId": "diversity-inclusion"
+              }
+            ]
+          },
+          {
+            "label": "Admissions",
+            "href": "/admissions",
+            "paradigm": "topic",
+            "conceptId": "admissions-apply",
+            "children": [
+              {
+                "label": "Apply to LAS",
+                "href": "/admissions/attendillinois",
+                "paradigm": "task",
+                "conceptId": "admissions-apply"
+              },
+              {
+                "label": "Explore LAS majors",
+                "href": "/admissions/exploremajors",
+                "paradigm": "topic",
+                "conceptId": "majors-programs"
+              },
+              {
+                "label": "LAS Insider blog",
+                "href": "/admissions/lasinsider",
+                "paradigm": "topic",
+                "conceptId": "prospective-faqs-blogs"
+              },
+              {
+                "label": "Admissions FAQs",
+                "href": "/admissions/faqs",
+                "paradigm": "topic",
+                "conceptId": "prospective-faqs-blogs"
+              },
+              {
+                "label": "CS + X majors FAQ",
+                "href": "/admissions/faqcsx",
+                "paradigm": "topic",
+                "conceptId": "prospective-faqs-blogs"
+              },
+              {
+                "label": "Pre-college summer programs",
+                "href": "/admissions/summer",
+                "paradigm": "topic",
+                "conceptId": "prospective-faqs-blogs"
+              }
+            ]
+          },
+          {
+            "label": "Academics",
+            "href": "/academics",
+            "paradigm": "topic",
+            "conceptId": "majors-programs",
+            "children": [
+              {
+                "label": "Student COVID-19 resources",
+                "href": "/academics/covid19",
+                "paradigm": "topic",
+                "conceptId": "first-year-wellness"
+              },
+              {
+                "label": "Academic policies and standing",
+                "href": "/academics/rules",
+                "paradigm": "topic",
+                "conceptId": "policies-dates-forms"
+              },
+              {
+                "label": "Academic Workshops",
+                "href": "/academics/workshops",
+                "paradigm": "topic",
+                "conceptId": "advising-support"
+              },
+              {
+                "label": "Access and Achievement Program",
+                "href": "/academics/aap",
+                "paradigm": "topic",
+                "conceptId": "first-year-wellness"
+              },
+              {
+                "label": "Advising and support",
+                "href": "/academics/advising",
+                "paradigm": "task",
+                "conceptId": "advising-support"
+              },
+              {
+                "label": "College distinctions",
+                "href": "/academics/distinctions",
+                "paradigm": "topic",
+                "conceptId": "honors-scholarships"
+              },
+              {
+                "label": "Dates and deadlines",
+                "href": "/academics/dates",
+                "paradigm": "topic",
+                "conceptId": "policies-dates-forms"
+              },
+              {
+                "label": "Departments, units, and programs",
+                "href": "/about/units",
+                "paradigm": "topic",
+                "conceptId": "units-departments"
+              },
+              {
+                "label": "Graduation",
+                "href": "/academics/graduation",
+                "paradigm": "task",
+                "conceptId": "graduation-commencement"
+              },
+              {
+                "label": "Honors Program",
+                "href": "/academics/honors",
+                "paradigm": "topic",
+                "conceptId": "honors-scholarships"
+              },
+              {
+                "label": "International programs",
+                "href": "/academics/international",
+                "paradigm": "topic",
+                "conceptId": "study-abroad-global"
+              },
+              {
+                "label": "LAS Lineup student newsletter",
+                "href": "/academics/laslineup",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "Programs of study",
+                "href": "/academics/programs",
+                "paradigm": "topic",
+                "conceptId": "majors-programs"
+              },
+              {
+                "label": "Scholarships",
+                "href": "/academics/scholarships",
+                "paradigm": "topic",
+                "conceptId": "honors-scholarships"
+              },
+              {
+                "label": "Program Change Requests",
+                "href": "/academics/forms",
+                "paradigm": "task",
+                "conceptId": "policies-dates-forms"
+              }
+            ]
+          },
+          {
+            "label": "Career readiness",
+            "href": "/lifecareerdesign",
+            "paradigm": "topic",
+            "conceptId": "career-internships",
+            "children": [
+              {
+                "label": "Classes",
+                "href": "/lifecareerdesign/classes",
+                "paradigm": "topic",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "Internship opportunities",
+                "href": "/lifecareerdesign/internships",
+                "paradigm": "task",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "Life + Career exploration",
+                "href": "/lifecareerdesign/exploration",
+                "paradigm": "topic",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "Life + Career preparation",
+                "href": "/lifecareerdesign/preparation",
+                "paradigm": "topic",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "Leadership and service",
+                "href": "/lifecareerdesign/leadershipservice",
+                "paradigm": "topic",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "Scholarships",
+                "href": "/lifecareerdesign/scholarships",
+                "paradigm": "topic",
+                "conceptId": "honors-scholarships"
+              },
+              {
+                "label": "Global learning",
+                "href": "https://las.illinois.edu/academics/international",
+                "paradigm": "topic",
+                "conceptId": "study-abroad-global"
+              }
+            ]
+          },
+          {
+            "label": "Research",
+            "href": "/research",
+            "paradigm": "topic",
+            "conceptId": "research-centers",
+            "children": [
+              {
+                "label": "Student research opportunities",
+                "href": "/research/students",
+                "paradigm": "topic",
+                "conceptId": "research-centers"
+              },
+              {
+                "label": "Expertise in LAS",
+                "href": "/research/expertise",
+                "paradigm": "topic",
+                "conceptId": "research-centers"
+              },
+              {
+                "label": "Research facilities and centers",
+                "href": "/research/facilities",
+                "paradigm": "topic",
+                "conceptId": "research-centers"
+              },
+              {
+                "label": "Dean's Distinguished Lecture series",
+                "href": "/research/deanslecture",
+                "paradigm": "topic",
+                "conceptId": "events-calendars"
+              }
+            ]
+          },
+          {
+            "label": "Alumni",
+            "href": "/alumni",
+            "paradigm": "audience",
+            "conceptId": "alumni-engagement",
+            "children": [
+              {
+                "label": "Alumni advice",
+                "href": "/alumni/advice",
+                "paradigm": "topic",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "Alumni award programs",
+                "href": "/alumni/awards",
+                "paradigm": "topic",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "Events",
+                "href": "/alumni/events",
+                "paradigm": "topic",
+                "conceptId": "events-calendars"
+              },
+              {
+                "label": "Get involved",
+                "href": "/alumni/volunteer",
+                "paradigm": "task",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "LAS Alumni Council",
+                "href": "/alumni/council",
+                "paradigm": "topic",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "LAS@Work: Alumni careers",
+                "href": "/alumni/advice/lasatwork",
+                "paradigm": "topic",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "Study Abroad Alumni Networks",
+                "href": "/alumni/abroad",
+                "paradigm": "topic",
+                "conceptId": "study-abroad-global"
+              }
+            ]
+          },
+          {
+            "label": "News",
+            "href": "/news",
+            "paradigm": "topic",
+            "conceptId": "news-publications",
+            "children": [
+              {
+                "label": "Faculty honors",
+                "href": "/news/faculty-honors",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "LAS News email newsletter archive",
+                "href": "/news/newsletter",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "LAS News magazine",
+                "href": "/news/magazine",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "LAS social media",
+                "href": "/news/socialmedia",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "Media contact in the College of LAS",
+                "href": "/news/media",
+                "paradigm": "task",
+                "conceptId": "news-publications"
+              }
+            ]
+          },
+          {
+            "label": "Giving",
+            "href": "/giving",
+            "paradigm": "topic",
+            "conceptId": "giving-make-gift",
+            "children": [
+              {
+                "label": "Give now",
+                "href": "/giving/givenow",
+                "paradigm": "task",
+                "conceptId": "giving-make-gift"
+              },
+              {
+                "label": "About giving to LAS",
+                "href": "/giving/about",
+                "paradigm": "topic",
+                "conceptId": "giving-make-gift"
+              },
+              {
+                "label": "Building projects",
+                "href": "/giving/building",
+                "paradigm": "topic",
+                "conceptId": "giving-make-gift"
+              },
+              {
+                "label": "Corporate engagement",
+                "href": "/giving/corporate",
+                "paradigm": "topic",
+                "conceptId": "giving-make-gift"
+              },
+              {
+                "label": "Faculty support",
+                "href": "/giving/faculty",
+                "paradigm": "topic",
+                "conceptId": "giving-make-gift"
+              },
+              {
+                "label": "Life + Career Design",
+                "href": "/giving/lifecareer",
+                "paradigm": "topic",
+                "conceptId": "giving-make-gift"
+              },
+              {
+                "label": "Lincoln Scholars Initiative",
+                "href": "/giving/lincolnscholars",
+                "paradigm": "topic",
+                "conceptId": "giving-make-gift"
+              },
+              {
+                "label": "Impact of giving",
+                "href": "/giving/stories",
+                "paradigm": "topic",
+                "conceptId": "giving-make-gift"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "footerDisplaced": {
+      "heading": "Resources for faculty and staff",
+      "formerZone": "Primary Audience Mega-Menu (2014–2018)",
+      "rationale": "Maintained in the footer (expanded with \"LAS Services Center\" and \"Directory\") so internal campus operations stay accessible without competing with student recruitment in the primary navigation bar.",
+      "items": [
+        {
+          "label": "Complete list of resources",
+          "href": "/faculty",
+          "paradigm": "audience",
+          "conceptId": "persona-faculty-staff"
+        },
+        {
+          "label": "LAS Services Center",
+          "href": "/faculty/center",
+          "paradigm": "task",
+          "conceptId": "persona-faculty-staff"
+        },
+        {
+          "label": "Advising toolbox",
+          "href": "/faculty/advising",
+          "paradigm": "task",
+          "conceptId": "advising-support"
+        },
+        {
+          "label": "Dates and deadlines",
+          "href": "/faculty/dates",
+          "paradigm": "topic",
+          "conceptId": "policies-dates-forms"
+        },
+        {
+          "label": "Approval process for LAS courses",
+          "href": "/faculty/courses",
+          "paradigm": "task",
+          "conceptId": "courses-gened"
+        },
+        {
+          "label": "Approval process for curricula",
+          "href": "/faculty/curricula",
+          "paradigm": "task",
+          "conceptId": "courses-gened"
+        },
+        {
+          "label": "Directory",
+          "href": "/directory",
+          "paradigm": "task",
+          "conceptId": "leadership-directory"
+        }
+      ]
+    },
+    "metrics": {
+      "zoneCount": 2,
+      "level1Count": 10,
+      "level2Count": 59,
+      "totalItems": 69,
+      "maxDepth": 2,
+      "paradigmCounts": {
+        "audience": 2,
+        "topic": 56,
+        "task": 11,
+        "hybrid": 0
+      },
+      "paradigmPercentages": {
+        "audience": 3,
+        "topic": 81,
+        "task": 16,
+        "hybrid": 0
+      },
+      "l1ParadigmPercentages": {
+        "audience": 10,
+        "topic": 70,
+        "task": 20,
+        "hybrid": 0
+      },
+      "audienceGatedPercentage": 13
+    },
+    "showcaseFoldImage": "screenshots/2021-fold.webp",
+    "showcaseFullImage": "screenshots/2021-full.webp",
+    "showcaseWaybackUrl": "https://web.archive.org/web/20211009084450/https://las.illinois.edu/",
+    "showcaseCaptureDate": "2021-10-09"
+  },
+  {
+    "id": "iter-2025",
+    "number": 9,
+    "debutYear": 2025,
+    "endYear": null,
+    "yearSpanLabel": "2025–Present",
+    "title": "Illinois Web Theme & Recruitment-First Architecture",
+    "eraTagline": "Standardized Campus Toolkit v3 (<ilw-header>) centering student recruitment while keeping campus-internal audiences out of primary nav",
+    "canonicalHost": "las.illinois.edu",
+    "techSignature": "Drupal 10 + illinois_framework_theme + Illinois Campus Toolkit v3 (<ilw-header>)",
+    "visualSummary": "Standardized University of Illinois <ilw-header> masthead featuring \"Visit | Apply | Give\" action links beside search, accessible high-contrast dropdown bar, full-width hero photography with \"Explore majors / Apply / Visit\" conversion buttons, and modular story blocks.",
+    "iaHeadline": "Deliberate Recruitment-First IA: \"Visit | Apply | Give\" utility funnel + student-centered primary menu, with internal faculty/staff governance excluded from primary navigation.",
+    "iaAnalysis": [
+      "Adopting the campus-wide Illinois Web Theme (<ilw-header>) crystallized LAS’s strategic Recruitment-First navigation model. Adding \"Visit\" alongside \"Apply\" and \"Give\" in the top utility slot—mirrored immediately by \"Explore majors | Apply | Visit\" hero CTAs—aligns the header tightly around the prospective-student recruitment funnel.",
+      "Across the 8 primary menus (About, Admissions, Academics, Student resources, Research, Alumni, News, Giving/Give), curriculum and support are cleanly separated: Academics holds degree rules, advising, ICTs, and majors/minors, while Student resources houses co-curricular success (Career services, FYE, Honors, International programs, Internships, Paul M. Lisnek LAS Hub)."
+    ],
+    "audienceNavCommentary": "Reflecting an explicit UX/UI decision by the LAS web team to prioritize student recruitment, pages geared toward internal campus audiences (faculty and staff) are intentionally excluded from primary Level-1 navigation—living instead in the dedicated \"Resources for faculty and staff\" footer menu (with a single secondary cross-link inside About). Notably, student- and external-aligned groupings (\"Student resources\" and \"Alumni\" at L1; \"Parent resources\" under Admissions) remain only where they reinforce student success and external engagement.",
+    "intraEraDrift": [
+      {
+        "years": "2026 (Live)",
+        "summary": "Converted the 8th primary label from noun \"Giving\" to action verb \"Give\", added \"College mission, vision and values\" and \"Educational Excellence\" under About, \"Online programs\" under Academics, and \"Health & wellness resources\" under Student resources."
+      }
+    ],
+    "zones": [
+      {
+        "id": "2025-utility",
+        "name": "Recruitment & Philanthropy Utility Header",
+        "zoneType": "utility-header",
+        "placement": "Upper-right <ilw-header> utility slot next to search",
+        "dominantParadigm": "task",
+        "description": "Three verb-driven conversion CTAs leading with prospective campus visits and applications.",
+        "items": [
+          {
+            "label": "Visit",
+            "href": "https://www.admissions.illinois.edu/visit",
+            "paradigm": "task",
+            "conceptId": "visit-campus"
+          },
+          {
+            "label": "Apply",
+            "href": "https://las.illinois.edu/admissions/attendillinois",
+            "paradigm": "task",
+            "conceptId": "admissions-apply"
+          },
+          {
+            "label": "Give",
+            "href": "https://las.illinois.edu/giving",
+            "paradigm": "task",
+            "conceptId": "giving-make-gift"
+          }
+        ]
+      },
+      {
+        "id": "2025-primary",
+        "name": "Illinois Web Theme Primary Menu (<ilw-header>)",
+        "zoneType": "primary",
+        "placement": "Standardized <ilw-header> horizontal menu bar with accessible disclosure panels",
+        "dominantParadigm": "topic",
+        "description": "Eight primary menus balancing prospective recruitment, academic journeys, research, and external advancement.",
+        "items": [
+          {
+            "label": "About",
+            "href": "/about",
+            "paradigm": "topic",
+            "conceptId": "about-overview",
+            "children": [
+              {
+                "label": "Departments, units, and programs",
+                "href": "/about/units",
+                "paradigm": "topic",
+                "conceptId": "units-departments"
+              },
+              {
+                "label": "College leadership",
+                "href": "/about/leadership",
+                "paradigm": "topic",
+                "conceptId": "leadership-directory"
+              },
+              {
+                "label": "Directory",
+                "href": "/directory",
+                "paradigm": "task",
+                "conceptId": "leadership-directory"
+              },
+              {
+                "label": "Fast facts",
+                "href": "/about/facts",
+                "paradigm": "topic",
+                "conceptId": "about-overview"
+              },
+              {
+                "label": "Inclusive Excellence",
+                "href": "/about/ie",
+                "paradigm": "topic",
+                "conceptId": "diversity-inclusion"
+              },
+              {
+                "label": "Public engagement in LAS",
+                "href": "/about/publicengagement",
+                "paradigm": "topic",
+                "conceptId": "research-centers"
+              },
+              {
+                "label": "Faculty & staff resources",
+                "href": "/faculty",
+                "paradigm": "audience",
+                "conceptId": "persona-faculty-staff"
+              }
+            ]
+          },
+          {
+            "label": "Admissions",
+            "href": "/admissions",
+            "paradigm": "topic",
+            "conceptId": "admissions-apply",
+            "children": [
+              {
+                "label": "Apply to LAS",
+                "href": "/admissions/attendillinois",
+                "paradigm": "task",
+                "conceptId": "admissions-apply"
+              },
+              {
+                "label": "Liberal arts & sciences majors",
+                "href": "/admissions/explore",
+                "paradigm": "topic",
+                "conceptId": "majors-programs"
+              },
+              {
+                "label": "LAS Insider blog",
+                "href": "/admissions/lasinsider",
+                "paradigm": "topic",
+                "conceptId": "prospective-faqs-blogs"
+              },
+              {
+                "label": "Admissions FAQs",
+                "href": "/admissions/faqs",
+                "paradigm": "topic",
+                "conceptId": "prospective-faqs-blogs"
+              },
+              {
+                "label": "Parent resources",
+                "href": "/admissions/parents",
+                "paradigm": "audience",
+                "conceptId": "persona-students-parents"
+              },
+              {
+                "label": "Pre-college summer programs",
+                "href": "/admissions/summer",
+                "paradigm": "topic",
+                "conceptId": "prospective-faqs-blogs"
+              }
+            ]
+          },
+          {
+            "label": "Academics",
+            "href": "/academics",
+            "paradigm": "topic",
+            "conceptId": "majors-programs",
+            "children": [
+              {
+                "label": "Academic policies and standing",
+                "href": "/academics/rules",
+                "paradigm": "topic",
+                "conceptId": "policies-dates-forms"
+              },
+              {
+                "label": "Advising and support",
+                "href": "/academics/advising",
+                "paradigm": "task",
+                "conceptId": "advising-support"
+              },
+              {
+                "label": "College distinctions",
+                "href": "/academics/distinctions",
+                "paradigm": "topic",
+                "conceptId": "honors-scholarships"
+              },
+              {
+                "label": "Dates and deadlines",
+                "href": "/academics/dates",
+                "paradigm": "topic",
+                "conceptId": "policies-dates-forms"
+              },
+              {
+                "label": "Forms",
+                "href": "/academics/forms",
+                "paradigm": "task",
+                "conceptId": "policies-dates-forms"
+              },
+              {
+                "label": "Graduation",
+                "href": "/academics/graduation",
+                "paradigm": "task",
+                "conceptId": "graduation-commencement"
+              },
+              {
+                "label": "Intercollegiate transfers",
+                "href": "/academics/icts",
+                "paradigm": "task",
+                "conceptId": "transfer-pathways"
+              },
+              {
+                "label": "Majors & minors",
+                "href": "/academics/programs",
+                "paradigm": "topic",
+                "conceptId": "majors-programs"
+              },
+              {
+                "label": "Scholarships",
+                "href": "/academics/scholarships",
+                "paradigm": "topic",
+                "conceptId": "honors-scholarships"
+              }
+            ]
+          },
+          {
+            "label": "Student resources",
+            "href": "/resources",
+            "paradigm": "hybrid",
+            "conceptId": "persona-students-parents",
+            "children": [
+              {
+                "label": "Access and Achievement Program",
+                "href": "/resources/aap",
+                "paradigm": "topic",
+                "conceptId": "first-year-wellness"
+              },
+              {
+                "label": "Career services",
+                "href": "/resources/career",
+                "paradigm": "topic",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "Courses",
+                "href": "/resources/classes",
+                "paradigm": "topic",
+                "conceptId": "courses-gened"
+              },
+              {
+                "label": "First-Year Experience",
+                "href": "/resources/fye",
+                "paradigm": "topic",
+                "conceptId": "first-year-wellness"
+              },
+              {
+                "label": "Honors program",
+                "href": "/resources/honors",
+                "paradigm": "topic",
+                "conceptId": "honors-scholarships"
+              },
+              {
+                "label": "International programs",
+                "href": "/resources/international",
+                "paradigm": "topic",
+                "conceptId": "study-abroad-global"
+              },
+              {
+                "label": "Internship opportunities",
+                "href": "/resources/internships",
+                "paradigm": "task",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "LAS Lineup newsletter",
+                "href": "/resources/laslineup",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "Paul M. Lisnek LAS Hub",
+                "href": "/resources/hub",
+                "paradigm": "topic",
+                "conceptId": "advising-support"
+              }
+            ]
+          },
+          {
+            "label": "Research",
+            "href": "/research",
+            "paradigm": "topic",
+            "conceptId": "research-centers",
+            "children": [
+              {
+                "label": "Expertise in LAS",
+                "href": "/research/expertise",
+                "paradigm": "topic",
+                "conceptId": "research-centers"
+              },
+              {
+                "label": "Research centers & institutes",
+                "href": "/research/facilities",
+                "paradigm": "topic",
+                "conceptId": "research-centers"
+              },
+              {
+                "label": "Student research",
+                "href": "/research/students",
+                "paradigm": "topic",
+                "conceptId": "research-centers"
+              },
+              {
+                "label": "Resources for LAS researchers",
+                "href": "/research/resources",
+                "paradigm": "topic",
+                "conceptId": "research-centers"
+              },
+              {
+                "label": "Request support",
+                "href": "https://apps.atlas.illinois.edu/",
+                "paradigm": "task",
+                "conceptId": "research-centers"
+              },
+              {
+                "label": "Dean's Distinguished Lecture series",
+                "href": "/research/deanslecture",
+                "paradigm": "topic",
+                "conceptId": "events-calendars"
+              }
+            ]
+          },
+          {
+            "label": "Alumni",
+            "href": "/alumni",
+            "paradigm": "audience",
+            "conceptId": "alumni-engagement",
+            "children": [
+              {
+                "label": "Alumni advice",
+                "href": "/alumni/advice",
+                "paradigm": "topic",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "Alumni award programs",
+                "href": "/alumni/awards",
+                "paradigm": "topic",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "Events",
+                "href": "/alumni/events",
+                "paradigm": "topic",
+                "conceptId": "events-calendars"
+              },
+              {
+                "label": "Get involved",
+                "href": "/alumni/volunteer",
+                "paradigm": "task",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "LAS Alumni Council",
+                "href": "/alumni/council",
+                "paradigm": "topic",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "LAS store",
+                "href": "https://las.illini.store/",
+                "paradigm": "task",
+                "conceptId": "alumni-engagement"
+              },
+              {
+                "label": "LAS@Work: Alumni careers",
+                "href": "/alumni/advice/lasatwork",
+                "paradigm": "topic",
+                "conceptId": "career-internships"
+              },
+              {
+                "label": "Study Abroad Alumni Networks",
+                "href": "/alumni/abroad",
+                "paradigm": "topic",
+                "conceptId": "study-abroad-global"
+              }
+            ]
+          },
+          {
+            "label": "News",
+            "href": "/news",
+            "paradigm": "topic",
+            "conceptId": "news-publications",
+            "children": [
+              {
+                "label": "Faculty honors",
+                "href": "/news/faculty-honors",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "The Quadrangle",
+                "href": "/news/magazine",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "LAS News email newsletter archive",
+                "href": "/news/newsletter",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "LAS social media",
+                "href": "/news/socialmedia",
+                "paradigm": "topic",
+                "conceptId": "news-publications"
+              },
+              {
+                "label": "Media contact in the College of LAS",
+                "href": "/news/media",
+                "paradigm": "task",
+                "conceptId": "news-publications"
+              }
+            ]
+          },
+          {
+            "label": "Giving",
+            "href": "/giving",
+            "paradigm": "topic",
+            "conceptId": "giving-make-gift",
+            "children": [
+              {
+                "label": "Day of Giving",
+                "href": "/giving/dayofgiving",
+                "paradigm": "task",
+                "conceptId": "giving-make-gift"
+              },
+              {
+                "label": "Give now",
+                "href": "/giving/givenow",
+                "paradigm": "task",
+                "conceptId": "giving-make-gift"
+              },
+              {
+                "label": "About giving to LAS",
+                "href": "/giving/about",
+                "paradigm": "topic",
+                "conceptId": "giving-make-gift"
+              },
+              {
+                "label": "Building projects",
+                "href": "/giving/building",
+                "paradigm": "topic",
+                "conceptId": "giving-make-gift"
+              },
+              {
+                "label": "Corporate engagement",
+                "href": "/giving/corporate",
+                "paradigm": "topic",
+                "conceptId": "giving-make-gift"
+              },
+              {
+                "label": "Faculty support",
+                "href": "/giving/faculty",
+                "paradigm": "topic",
+                "conceptId": "giving-make-gift"
+              },
+              {
+                "label": "Lincoln Scholars Initiative",
+                "href": "/giving/lincolnscholars",
+                "paradigm": "topic",
+                "conceptId": "giving-make-gift"
+              },
+              {
+                "label": "Impact of giving",
+                "href": "/giving/stories",
+                "paradigm": "topic",
+                "conceptId": "giving-make-gift"
+              },
+              {
+                "label": "Diversity, equity, and inclusion",
+                "href": "/giving/diversity",
+                "paradigm": "topic",
+                "conceptId": "diversity-inclusion"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "footerDisplaced": {
+      "heading": "Resources for faculty and staff",
+      "formerZone": "Primary Audience Mega-Menu (2014–2018)",
+      "rationale": "Strategic LAS UX decision: keep internal campus audience links out of the primary navigation bar so primary/utility header real estate remains focused on student recruitment and external engagement.",
+      "items": [
+        {
+          "label": "Complete list of resources",
+          "href": "/faculty",
+          "paradigm": "audience",
+          "conceptId": "persona-faculty-staff"
+        },
+        {
+          "label": "LAS Services Center",
+          "href": "/faculty/center",
+          "paradigm": "task",
+          "conceptId": "persona-faculty-staff"
+        },
+        {
+          "label": "Advising toolbox",
+          "href": "/faculty/advising",
+          "paradigm": "task",
+          "conceptId": "advising-support"
+        },
+        {
+          "label": "Dates and deadlines",
+          "href": "/faculty/dates",
+          "paradigm": "topic",
+          "conceptId": "policies-dates-forms"
+        },
+        {
+          "label": "Approval process for courses",
+          "href": "/faculty/courses",
+          "paradigm": "task",
+          "conceptId": "courses-gened"
+        },
+        {
+          "label": "Approval process for curricula",
+          "href": "/faculty/curricula",
+          "paradigm": "task",
+          "conceptId": "courses-gened"
+        },
+        {
+          "label": "Directory",
+          "href": "/directory",
+          "paradigm": "task",
+          "conceptId": "leadership-directory"
+        }
+      ]
+    },
+    "metrics": {
+      "zoneCount": 2,
+      "level1Count": 11,
+      "level2Count": 59,
+      "totalItems": 70,
+      "maxDepth": 2,
+      "paradigmCounts": {
+        "audience": 3,
+        "topic": 50,
+        "task": 16,
+        "hybrid": 1
+      },
+      "paradigmPercentages": {
+        "audience": 4,
+        "topic": 71,
+        "task": 23,
+        "hybrid": 1
+      },
+      "l1ParadigmPercentages": {
+        "audience": 9,
+        "topic": 55,
+        "task": 27,
+        "hybrid": 9
+      },
+      "audienceGatedPercentage": 30
+    },
+    "showcaseFoldImage": "screenshots/2025-fold.webp",
+    "showcaseFullImage": "screenshots/2025-full.webp",
+    "showcaseWaybackUrl": "https://web.archive.org/web/20251001033019/https://las.illinois.edu/",
+    "showcaseCaptureDate": "2025-10-01"
+  }
+]

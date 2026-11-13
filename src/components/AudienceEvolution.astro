@@ -1,0 +1,484 @@
+---
+import type { DesignIteration } from '../types/retrospective';
+
+interface Props {
+  iterations: DesignIteration[];
+}
+
+const { iterations } = Astro.props;
+
+const personaTimeline = [
+  {
+    persona: 'Prospective Students',
+    note: 'Shifted from an audience bucket into the core organizing funnel of primary & utility navigation.',
+    states: [
+      { yr: 2000, status: 'Absent (implicit catalog)', tone: 'none' },
+      { yr: 2001, status: 'Pooled in "Students"', tone: 'aud' },
+      { yr: 2005, status: 'Pooled in "Resources For"', tone: 'aud' },
+      { yr: 2008, status: 'Pooled in "for Students"', tone: 'aud' },
+      { yr: 2014, status: 'Dedicated Mega-Menu #1', tone: 'peak' },
+      { yr: 2016, status: 'Dedicated Mega-Menu #1', tone: 'peak' },
+      { yr: 2019, status: 'Admissions L1 + "I want to..."', tone: 'task' },
+      { yr: 2021, status: 'Admissions L1 + "Apply" Pill', tone: 'task' },
+      { yr: 2025, status: 'Visit · Apply + Admissions L1', tone: 'task' },
+    ],
+  },
+  {
+    persona: 'Current Students',
+    note: 'Decomposed from a 28-link catch-all persona dropdown into Academics + Student resources.',
+    states: [
+      { yr: 2000, status: '"Student Information" link', tone: 'aud' },
+      { yr: 2001, status: '"students" / "For Students"', tone: 'aud' },
+      { yr: 2005, status: '"Resources For: Students"', tone: 'aud' },
+      { yr: 2008, status: 'Orange "for Students" tab', tone: 'aud' },
+      { yr: 2014, status: 'Mega-Menu #2 (22+ links)', tone: 'peak' },
+      { yr: 2016, status: 'Mega-Menu #2 (27 links)', tone: 'peak' },
+      { yr: 2019, status: 'Academics + Life/Career L1', tone: 'topic' },
+      { yr: 2021, status: 'Academics + Career/Resources', tone: 'topic' },
+      { yr: 2025, status: 'Academics + Student resources', tone: 'topic' },
+    ],
+  },
+  {
+    persona: 'Faculty & Staff (Campus Internal)',
+    note: 'Deliberately removed from primary nav in 2019+ so header UX stays focused on student recruitment.',
+    states: [
+      { yr: 2000, status: 'Inline Curricula Forms only', tone: 'topic' },
+      { yr: 2001, status: 'Navbar "faculty/staff" L1', tone: 'aud' },
+      { yr: 2005, status: '"Resources For: Faculty" L1', tone: 'aud' },
+      { yr: 2008, status: 'Orange "Faculty & Staff" tab', tone: 'aud' },
+      { yr: 2014, status: 'Mega-Menu #4 (17 links)', tone: 'peak' },
+      { yr: 2016, status: 'Mega-Menu #4 (17 links)', tone: 'peak' },
+      { yr: 2019, status: 'Displaced to Footer Menu', tone: 'footer' },
+      { yr: 2021, status: 'Footer Menu + About L2', tone: 'footer' },
+      { yr: 2025, status: 'Footer Menu + About L2', tone: 'footer' },
+    ],
+  },
+  {
+    persona: 'Alumni & Friends',
+    note: 'Only persona to retain a top-level label continuously since 2000 due to external engagement & philanthropy.',
+    states: [
+      { yr: 2000, status: '"External Relations: Alumni"', tone: 'aud' },
+      { yr: 2001, status: 'Navbar "alumni/friends" L1', tone: 'aud' },
+      { yr: 2005, status: '"Resources For: Alumni" L1', tone: 'aud' },
+      { yr: 2008, status: 'Orange "Alumni" hero tab', tone: 'aud' },
+      { yr: 2014, status: 'Mega-Menu #3 (10 links)', tone: 'peak' },
+      { yr: 2016, status: 'Mega-Menu #3 (10 links)', tone: 'peak' },
+      { yr: 2019, status: 'Primary L1 "Alumni"', tone: 'topic' },
+      { yr: 2021, status: 'Primary L1 "Alumni"', tone: 'topic' },
+      { yr: 2025, status: 'Primary L1 "Alumni"', tone: 'topic' },
+    ],
+  },
+  {
+    persona: 'Parents & Families',
+    note: 'Tucked inside Current Students in 2014–2018; repositioned under Admissions for recruitment alignment in 2023+.',
+    states: [
+      { yr: 2000, status: 'Absent', tone: 'none' },
+      { yr: 2001, status: 'Absent', tone: 'none' },
+      { yr: 2005, status: 'Absent', tone: 'none' },
+      { yr: 2008, status: 'Absent', tone: 'none' },
+      { yr: 2014, status: 'Current Students → L2', tone: 'aud' },
+      { yr: 2016, status: 'Current students → L2', tone: 'aud' },
+      { yr: 2019, status: 'Absent from header', tone: 'none' },
+      { yr: 2021, status: 'Added to Admissions L2 (2023)', tone: 'task' },
+      { yr: 2025, status: 'Admissions → Parent resources', tone: 'task' },
+    ],
+  },
+];
+---
+
+<section id="audience-evolution" class="audience-section" aria-labelledby="audience-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Cross-Era Synthesis · Part 2</span>
+      <h2 id="audience-heading" class="section-heading">
+        From “Resources For…” to Recruitment-First: The Arc of Audience Navigation
+      </h2>
+      <p class="section-lead">
+        Organizing primary navigation by user persona (<em>“For Students”</em>, <em>“For Faculty”</em>) was higher
+        education’s dominant convention in the 2000s and mid-2010s—yet modern UX research and LAS’s own strategic shift
+        moved decisively away from persona-gated primary bars.
+      </p>
+    </div>
+
+    <!-- Quantitative Bar Chart -->
+    <div class="chart-card" role="region" aria-label="Percentage of homepage navigation items gated behind an audience persona by era">
+      <div class="chart-head">
+        <div>
+          <h3 class="chart-title">Share of Navigation Links Gated Behind an Audience Persona (2000–2025)</h3>
+          <p class="chart-sub">
+            Percentage of total L1+L2 navigation items residing inside an Audience Bar or beneath a persona-labeled L1
+            trigger.
+          </p>
+        </div>
+      </div>
+
+      <div class="bars-grid">
+        {
+          iterations.map((it) => (
+            <div class="bar-col">
+              <div class="bar-pct">{it.metrics.audienceGatedPercentage}%</div>
+              <div class="bar-track" aria-hidden="true">
+                <div
+                  class:list={[
+                    'bar-fill',
+                    { 'bar-fill-peak': it.metrics.audienceGatedPercentage >= 80 },
+                    { 'bar-fill-modern': it.debutYear >= 2019 },
+                  ]}
+                  style={`height: ${Math.max(it.metrics.audienceGatedPercentage, 4)}%`}
+                />
+              </div>
+              <a href={`#${it.id}`} class="bar-yr">
+                {it.debutYear}
+              </a>
+              <span class="bar-zone-note">
+                {it.debutYear <= 2000 && 'Inline'}
+                {it.debutYear === 2001 && 'Dual Portal'}
+                {it.debutYear === 2005 && 'Split Bar'}
+                {it.debutYear === 2008 && 'Hero Tabs'}
+                {(it.debutYear === 2014 || it.debutYear === 2016) && '100% Primary'}
+                {it.debutYear === 2019 && 'Topic + Task'}
+                {it.debutYear === 2021 && 'Block-I'}
+                {it.debutYear === 2025 && 'Recruitment'}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Persona Residency Matrix -->
+    <div class="persona-table-wrap">
+      <h3 class="sub-heading">Where Each Audience Lived Across All 9 Design Iterations</h3>
+      <div class="persona-scroll">
+        <table class="persona-table">
+          <thead>
+            <tr>
+              <th scope="col" class="persona-sticky">Audience Persona</th>
+              {iterations.map((it) => <th scope="col">{it.debutYear}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {
+              personaTimeline.map((row) => (
+                <tr>
+                  <th scope="row" class="persona-sticky">
+                    <span class="persona-title">{row.persona}</span>
+                    <span class="persona-note">{row.note}</span>
+                  </th>
+                  {row.states.map((st) => (
+                    <td>
+                      <span class={`ptone ptone-${st.tone}`}>{st.status}</span>
+                    </td>
+                  ))}
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 4-Stage UX Narrative -->
+    <div class="stages-grid">
+      <div class="stage-card">
+        <span class="stage-kicker">Phase 1 · 2001–2013</span>
+        <h4>Emergence of Multi-Zone Persona Bars</h4>
+        <p>
+          After 2000’s flat directory, LAS introduced audience hubs (<em>Students, Faculty/Staff, Alumni</em>) inline in
+          2001, formally bracketed them under <strong>“Resources For”</strong> in 2005, and promoted them to angled
+          Illini Orange hero tabs in 2008 alongside a separate black institutional bar.
+        </p>
+      </div>
+      <div class="stage-card">
+        <span class="stage-kicker">Phase 2 · 2014–2018</span>
+        <h4>The 100% Persona Mega-Menu &amp; Its UX Friction</h4>
+        <p>
+          In 2014–2018, institutional topics moved to a small top utility bar while four personas owned 100% of primary
+          navigation. In practice, persona gating created classic IA friction: duplicated links (<em>Majors</em>,{' '}
+          <em>Honors</em>, <em>Study Abroad</em> in multiple menus) and role ambiguity for prospective families,
+          advisors, and campus visitors.
+        </p>
+      </div>
+      <div class="stage-card">
+        <span class="stage-kicker">Phase 3 · 2019–2024</span>
+        <h4>Topic Domains &amp; Task-Oriented Utility</h4>
+        <p>
+          The 2019 Drupal 8 relaunch dismantled the audience mega-menu in favor of universal subject domains (
+          <em>About, Admissions, Academics, Research, News</em>) paired first with verb-led tasks (
+          <em>“I want to…”</em>) and in 2021 with focused conversion pills (<em>Apply to LAS · Make a gift</em>).
+        </p>
+      </div>
+      <div class="stage-card stage-card-accent">
+        <span class="stage-kicker">Phase 4 · Current UX Strategy</span>
+        <h4>Intentional Recruitment-First Prioritization</h4>
+        <p>
+          Today’s navigation reflects a deliberate UX/UI decision to prioritize <strong>student recruitment</strong> in
+          header architecture (<em>Visit · Apply · Give</em> + prospective/student-centered primary menus) while keeping
+          internal campus audiences (<em>Faculty &amp; Staff</em>) out of primary navigation in a dedicated footer menu.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .audience-section {
+    padding: 3.25rem 0;
+    background: var(--bg-page);
+    border-bottom: 1px solid var(--border-light);
+    scroll-margin-top: 3.5rem;
+  }
+
+  .section-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .chart-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 1.35rem 1.5rem;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1.5rem;
+  }
+
+  .chart-title {
+    margin: 0 0 0.2rem;
+    font-size: 1.05rem;
+    color: var(--illini-navy);
+  }
+
+  .chart-sub {
+    margin: 0 0 1.25rem;
+    font-size: 0.85rem;
+    color: var(--ink-secondary);
+  }
+
+  .bars-grid {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(64px, 1fr));
+    gap: 0.75rem;
+    align-items: end;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+  }
+
+  .bar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .bar-pct {
+    font-size: 0.82rem;
+    font-weight: 750;
+    color: var(--illini-navy);
+    margin-bottom: 0.35rem;
+  }
+
+  .bar-track {
+    width: 100%;
+    max-width: 54px;
+    height: 140px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    width: 100%;
+    background: #6f829c;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .bar-fill-peak {
+    background: var(--illini-orange);
+  }
+
+  .bar-fill-modern {
+    background: var(--illini-navy);
+  }
+
+  .bar-yr {
+    margin-top: 0.45rem;
+    font-size: 0.84rem;
+    font-weight: 750;
+    color: var(--illini-navy);
+    text-decoration: none;
+  }
+
+  .bar-zone-note {
+    font-size: 0.7rem;
+    color: var(--ink-muted);
+    line-height: 1.25;
+    margin-top: 0.1rem;
+  }
+
+  .persona-table-wrap {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.4rem;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1.5rem;
+  }
+
+  .sub-heading {
+    margin: 0 0 0.85rem;
+    font-size: 1.02rem;
+    color: var(--illini-navy);
+  }
+
+  .persona-scroll {
+    overflow-x: auto;
+  }
+
+  .persona-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.78rem;
+  }
+
+  .persona-table th,
+  .persona-table td {
+    border-bottom: 1px solid #ebeff5;
+    padding: 0.55rem 0.45rem;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .persona-table thead th {
+    background: var(--bg-subtle);
+    color: var(--illini-navy);
+    font-weight: 750;
+  }
+
+  .persona-sticky {
+    position: sticky;
+    left: 0;
+    background: #ffffff;
+    text-align: left !important;
+    min-width: 220px;
+    max-width: 250px;
+    border-right: 1px solid var(--border-light);
+    padding-right: 0.75rem !important;
+  }
+
+  .persona-table thead .persona-sticky {
+    background: var(--bg-subtle);
+  }
+
+  .persona-title {
+    display: block;
+    font-weight: 700;
+    color: var(--illini-navy);
+  }
+
+  .persona-note {
+    display: block;
+    font-weight: 400;
+    font-size: 0.72rem;
+    color: var(--ink-secondary);
+    line-height: 1.35;
+    margin-top: 0.15rem;
+  }
+
+  .ptone {
+    display: inline-block;
+    padding: 0.22rem 0.45rem;
+    border-radius: 5px;
+    font-size: 0.71rem;
+    font-weight: 650;
+    line-height: 1.25;
+    border: 1px solid transparent;
+  }
+
+  .ptone-peak {
+    background: var(--illini-orange-tint);
+    color: var(--illini-orange-ink);
+    border-color: var(--illini-orange);
+  }
+
+  .ptone-aud {
+    background: #fff8f3;
+    color: var(--tag-audience-ink);
+    border-color: var(--tag-audience-border);
+  }
+
+  .ptone-task {
+    background: var(--tag-task-bg);
+    color: var(--tag-task-ink);
+    border-color: var(--tag-task-border);
+  }
+
+  .ptone-topic {
+    background: var(--tag-topic-bg);
+    color: var(--tag-topic-ink);
+    border-color: var(--tag-topic-border);
+  }
+
+  .ptone-footer {
+    background: #f8f9fb;
+    color: var(--ink-secondary);
+    border: 1px dashed var(--border-strong);
+  }
+
+  .ptone-none {
+    color: #9aa6b8;
+  }
+
+  .stages-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .stage-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-top: 3px solid var(--illini-navy);
+    border-radius: var(--radius-md);
+    padding: 1.05rem 1.15rem;
+  }
+
+  .stage-card-accent {
+    border-top-color: var(--illini-orange);
+  }
+
+  .stage-kicker {
+    font-size: 0.71rem;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--illini-orange-ink);
+  }
+
+  .stage-card h4 {
+    margin: 0.25rem 0 0.45rem;
+    font-size: 0.96rem;
+    color: var(--illini-navy);
+  }
+
+  .stage-card p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--ink-secondary);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 1024px) {
+    .stages-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .stages-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

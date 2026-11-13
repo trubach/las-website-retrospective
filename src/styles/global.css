@@ -1,0 +1,210 @@
+:root {
+  /* Light-themed neutral white/gray palette (ADR 0008) */
+  --bg-page: #f6f7f9;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f0f2f6;
+  --bg-muted: #e6eaf0;
+
+  --border-light: #dfe4ec;
+  --border-strong: #c5cedb;
+
+  /* Typography & Illini Contrast Accents (WCAG 2.1 AA verified) */
+  --ink-primary: #13294b; /* Illini Navy — 13.9:1 on white */
+  --ink-body: #243042; /* Neutral dark slate — 12.6:1 on white */
+  --ink-secondary: #4a5668; /* Neutral medium-dark gray — 7.4:1 on white */
+  --ink-muted: #5c687a; /* 5.6:1 on white */
+
+  --illini-navy: #13294b;
+  --illini-navy-tint: #eef2f7;
+  --illini-orange: #ff5f05; /* Emphasis bars, borders, active indicators */
+  --illini-orange-ink: #b33b00; /* AA-safe text orange: 5.9:1 on white, 5.3:1 on tint */
+  --illini-orange-tint: #fff4ed;
+
+  /* Paradigm semantic tokens (light neutral surfaces + high-contrast ink) */
+  --tag-topic-bg: #eef2f7;
+  --tag-topic-ink: #13294b;
+  --tag-topic-border: #c4d0e0;
+
+  --tag-audience-bg: #fff3eb;
+  --tag-audience-ink: #9e3300;
+  --tag-audience-border: #f5b994;
+
+  --tag-task-bg: #edf6f3;
+  --tag-task-ink: #0f5243;
+  --tag-task-border: #aad6ca;
+
+  --tag-hybrid-bg: #f4f1fa;
+  --tag-hybrid-ink: #472d7a;
+  --tag-hybrid-border: #cfc3e8;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  --shadow-sm: 0 1px 3px rgba(19, 41, 75, 0.06), 0 1px 2px rgba(19, 41, 75, 0.04);
+  --shadow-md: 0 6px 18px rgba(19, 41, 75, 0.07), 0 2px 6px rgba(19, 41, 75, 0.04);
+
+  --container-max: 1320px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-page);
+  color: var(--ink-body);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-page);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--illini-navy);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--illini-orange-ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--illini-orange);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  z-index: 2000;
+  background: var(--illini-navy);
+  color: #ffffff;
+  padding: 0.65rem 1.1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 12px;
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--illini-orange-ink);
+}
+
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--illini-orange);
+}
+
+.section-heading {
+  margin: 0.35rem 0 0.6rem;
+  font-size: clamp(1.65rem, 2.5vw, 2.2rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--illini-navy);
+}
+
+.section-lead {
+  margin: 0;
+  max-width: 74ch;
+  font-size: 1.03rem;
+  color: var(--ink-secondary);
+}
+
+/* Paradigm badges */
+.paradigm-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.12rem 0.48rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.paradigm-topic {
+  background: var(--tag-topic-bg);
+  color: var(--tag-topic-ink);
+  border-color: var(--tag-topic-border);
+}
+
+.paradigm-audience {
+  background: var(--tag-audience-bg);
+  color: var(--tag-audience-ink);
+  border-color: var(--tag-audience-border);
+}
+
+.paradigm-task {
+  background: var(--tag-task-bg);
+  color: var(--tag-task-ink);
+  border-color: var(--tag-task-border);
+}
+
+.paradigm-hybrid {
+  background: var(--tag-hybrid-bg);
+  color: var(--tag-hybrid-ink);
+  border-color: var(--tag-hybrid-border);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+}

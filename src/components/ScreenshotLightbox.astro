@@ -1,0 +1,249 @@
+---
+import type { AnnualSnapshot } from '../types/retrospective';
+import { withBase } from '../utils/retrospective-helpers';
+
+interface Props {
+  snapshots: AnnualSnapshot[];
+}
+
+const { snapshots } = Astro.props;
+
+const lightboxData = snapshots.map((s) => ({
+  year: s.year,
+  isMajorRefresh: s.isMajorRefresh,
+  canonicalHost: s.canonicalHost,
+  captureDate: s.captureDate,
+  waybackUrl: s.waybackUrl,
+  liveUrl: s.liveUrl || null,
+  foldSrc: withBase(s.foldImage),
+  fullSrc: withBase(s.fullImage),
+  yearHighlight: s.yearHighlight,
+  archivalNote: s.archivalNote || '',
+}));
+---
+
+<dialog
+  id="screencap-lightbox"
+  class="lightbox-dialog"
+  aria-labelledby="lightbox-title"
+  data-lightbox-snapshots={JSON.stringify(lightboxData)}
+>
+  <div class="lightbox-shell">
+    <div class="lightbox-topbar">
+      <div class="lightbox-meta">
+        <h2 id="lightbox-title" class="lightbox-heading" data-lb-title>2000 Homepage Screencap</h2>
+        <span class="lightbox-sub mono" data-lb-sub></span>
+      </div>
+
+      <div class="lightbox-controls">
+        <button type="button" class="lb-btn" data-lb-prev aria-label="Previous year">‹ Prev Year</button>
+        <button type="button" class="lb-btn" data-lb-next aria-label="Next year">Next Year ›</button>
+        <button type="button" class="lb-btn is-active" data-lb-mode="full">Full Page</button>
+        <button type="button" class="lb-btn" data-lb-mode="fold">Above Fold</button>
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="lb-btn lb-link"
+          data-lb-wayback
+        >
+          Wayback ↗
+        </a>
+        <button type="button" class="lb-btn lb-close" data-lb-close aria-label="Close screencap viewer">
+          ✕ Close
+        </button>
+      </div>
+    </div>
+
+    <div class="lightbox-caption" data-lb-caption></div>
+
+    <div class="lightbox-viewport" data-lb-viewport>
+      <img src="" alt="" class="lightbox-img" data-lb-img />
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const dialog = document.getElementById('screencap-lightbox') as HTMLDialogElement | null;
+  if (dialog && dialog.dataset.lightboxSnapshots) {
+    const snaps: any[] = JSON.parse(dialog.dataset.lightboxSnapshots);
+    let currentIdx = 0;
+    let viewMode: 'full' | 'fold' = 'full';
+
+    const titleEl = dialog.querySelector<HTMLElement>('[data-lb-title]')!;
+    const subEl = dialog.querySelector<HTMLElement>('[data-lb-sub]')!;
+    const captionEl = dialog.querySelector<HTMLElement>('[data-lb-caption]')!;
+    const imgEl = dialog.querySelector<HTMLImageElement>('[data-lb-img]')!;
+    const wbEl = dialog.querySelector<HTMLAnchorElement>('[data-lb-wayback]')!;
+    const viewportEl = dialog.querySelector<HTMLElement>('[data-lb-viewport]')!;
+    const modeBtns = Array.from(dialog.querySelectorAll<HTMLButtonElement>('[data-lb-mode]'));
+
+    function renderLightbox() {
+      const s = snaps[currentIdx];
+      if (!s) return;
+      titleEl.textContent = `${s.year} Homepage Screencap${s.isMajorRefresh ? ' (Major Refresh)' : ''}`;
+      subEl.textContent = `${s.canonicalHost} · ${s.captureDate} · 1280px Desktop`;
+      captionEl.textContent = s.archivalNote
+        ? `${s.yearHighlight} (${s.archivalNote})`
+        : s.yearHighlight;
+      imgEl.src = viewMode === 'full' ? s.fullSrc : s.foldSrc;
+      imgEl.alt = `${s.year} College of LAS ${viewMode === 'full' ? 'full-page' : 'above-the-fold'} screencap`;
+      wbEl.href = s.waybackUrl;
+      viewportEl.scrollTop = 0;
+      modeBtns.forEach((b) => b.classList.toggle('is-active', b.dataset.lbMode === viewMode));
+    }
+
+    function openAtYear(year: number) {
+      const idx = snaps.findIndex((s) => s.year === year);
+      currentIdx = idx >= 0 ? idx : 0;
+      renderLightbox();
+      if (!dialog!.open) {
+        dialog!.showModal();
+      }
+    }
+
+    window.addEventListener('open-screencap-lightbox', ((ev: CustomEvent<{ year: number }>) => {
+      openAtYear(ev.detail.year);
+    }) as EventListener);
+
+    dialog.querySelector('[data-lb-prev]')?.addEventListener('click', () => {
+      currentIdx = (currentIdx - 1 + snaps.length) % snaps.length;
+      renderLightbox();
+    });
+
+    dialog.querySelector('[data-lb-next]')?.addEventListener('click', () => {
+      currentIdx = (currentIdx + 1) % snaps.length;
+      renderLightbox();
+    });
+
+    modeBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        viewMode = (btn.dataset.lbMode as 'full' | 'fold') || 'full';
+        renderLightbox();
+      });
+    });
+
+    dialog.querySelector('[data-lb-close]')?.addEventListener('click', () => {
+      dialog.close();
+    });
+
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) dialog.close();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (!dialog.open) return;
+      if (e.key === 'ArrowLeft') {
+        currentIdx = (currentIdx - 1 + snaps.length) % snaps.length;
+        renderLightbox();
+      } else if (e.key === 'ArrowRight') {
+        currentIdx = (currentIdx + 1) % snaps.length;
+        renderLightbox();
+      }
+    });
+  }
+</script>
+
+<style>
+  .lightbox-dialog {
+    width: min(95vw, 1340px);
+    max-height: 92vh;
+    padding: 0;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-lg);
+    background: var(--bg-surface);
+    color: var(--ink-body);
+    box-shadow: 0 20px 50px rgba(19, 41, 75, 0.25);
+  }
+
+  .lightbox-dialog::backdrop {
+    background: rgba(19, 41, 75, 0.55);
+  }
+
+  .lightbox-shell {
+    display: flex;
+    flex-direction: column;
+    max-height: 92vh;
+  }
+
+  .lightbox-topbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.85rem 1.15rem;
+    background: var(--bg-subtle);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .lightbox-heading {
+    margin: 0;
+    font-size: 1.05rem;
+    color: var(--illini-navy);
+  }
+
+  .lightbox-sub {
+    font-size: 0.76rem;
+    color: var(--ink-secondary);
+  }
+
+  .lightbox-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .lb-btn {
+    background: #ffffff;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    padding: 0.3rem 0.65rem;
+    font-size: 0.78rem;
+    font-weight: 650;
+    color: var(--ink-body);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .lb-btn:hover {
+    border-color: var(--illini-navy);
+    color: var(--illini-navy);
+  }
+
+  .lb-btn.is-active {
+    background: var(--illini-navy);
+    color: #ffffff;
+    border-color: var(--illini-navy);
+  }
+
+  .lb-close {
+    border-color: var(--illini-navy);
+    color: var(--illini-navy);
+  }
+
+  .lightbox-caption {
+    padding: 0.55rem 1.15rem;
+    font-size: 0.83rem;
+    background: var(--bg-page);
+    border-bottom: 1px solid var(--border-light);
+    color: var(--ink-body);
+  }
+
+  .lightbox-viewport {
+    overflow: auto;
+    background: var(--bg-page);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .lightbox-img {
+    width: 100%;
+    max-width: 1280px;
+    height: auto;
+    border: 1px solid var(--border-strong);
+    background: #ffffff;
+    box-shadow: var(--shadow-md);
+  }
+</style>

@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroOverview from '../components/HeroOverview.astro';
+import StickyJumpBar from '../components/StickyJumpBar.astro';
+import IterationSection from '../components/IterationSection.astro';
+import ContinuityMatrix from '../components/ContinuityMatrix.astro';
+import AudienceEvolution from '../components/AudienceEvolution.astro';
+import IterationDiffTool from '../components/IterationDiffTool.astro';
+import ScreenshotLightbox from '../components/ScreenshotLightbox.astro';
+
+import taxonomyJson from '../data/taxonomy.json';
+import iterationsJson from '../data/iterations.json';
+import snapshotsJson from '../data/snapshots.json';
+
+import type { AnnualSnapshot, DesignIteration, TaxonomyDataset } from '../types/retrospective';
+import { getSnapshotsForIteration } from '../utils/retrospective-helpers';
+
+const taxonomy = taxonomyJson as TaxonomyDataset;
+const iterations = iterationsJson as DesignIteration[];
+const snapshots = snapshotsJson as AnnualSnapshot[];
+---
+
+<BaseLayout
+  title="College of LAS Website History & Navigation Retrospective (2000–Present)"
+  description="Chronological visual retrospective and information-architecture analysis of the University of Illinois College of Liberal Arts & Sciences website across www.las.uiuc.edu, www.las.illinois.edu, and las.illinois.edu."
+>
+  <HeroOverview iterations={iterations} snapshots={snapshots} />
+  <StickyJumpBar iterations={iterations} />
+
+  <main id="main-content">
+    <section class="chronology-section" aria-labelledby="chronology-heading">
+      <div class="container">
+        <div class="chronology-intro">
+          <span class="eyebrow">Chronological Retrospective · Oldest to Newest</span>
+          <h2 id="chronology-heading" class="section-heading">
+            Nine Major Design Iterations &amp; 27 Years of LAS Homepages (2000–Present)
+          </h2>
+          <p class="section-lead">
+            Each section highlights a <strong>Major Refresh</strong> year where the homepage underwent a substantial
+            visual layout overhaul, anchored to its debut desktop screencap (1280×900) and multi-zone navigation tree.
+            Use the annual scrubber inside multi-year eras to step year-by-year through intermediate captures.
+          </p>
+        </div>
+
+        {
+          iterations.map((iteration, idx) => (
+            <IterationSection
+              iteration={iteration}
+              snapshots={getSnapshotsForIteration(snapshots, iteration.id)}
+              eagerImage={idx === 0}
+            />
+          ))
+        }
+      </div>
+    </section>
+
+    <ContinuityMatrix taxonomy={taxonomy} iterations={iterations} />
+    <AudienceEvolution iterations={iterations} />
+    <IterationDiffTool taxonomy={taxonomy} iterations={iterations} />
+  </main>
+
+  <footer class="retro-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h2 class="footer-title">Archival Methodology &amp; Scope</h2>
+        <p>
+          Historical HTML and subresources (2000–2026) were retrieved from the Internet Archive Wayback Machine across
+          <code class="mono">www.las.uiuc.edu</code>, <code class="mono">www.las.illinois.edu</code>, and canonical
+          <code class="mono">las.illinois.edu</code> alongside the live homepage, rendered at a uniform 1280×900 desktop
+          viewport with Wayback overlays removed.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h2 class="footer-title">Navigation Analysis Rules</h2>
+        <p>
+          Navigation inventories capture homepage Primary, Audience, Utility Header, and structural Sidebar zones down
+          to Level-2 submenus—excluding general page footers except where former header persona menus (
+          <em>Resources for faculty and staff</em>) were intentionally displaced to the footer.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <ScreenshotLightbox snapshots={snapshots} />
+</BaseLayout>
+
+<style>
+  .chronology-section {
+    padding: 2.75rem 0 1.5rem;
+  }
+
+  .chronology-intro {
+    margin-bottom: 2rem;
+  }
+
+  .retro-footer {
+    background: var(--bg-page);
+    border-top: 1px solid var(--border-light);
+    padding: 2.25rem 0 3rem;
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .footer-title {
+    margin: 0 0 0.45rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--illini-navy);
+  }
+
+  .footer-col p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--ink-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+  }
+</style>

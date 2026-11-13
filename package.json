@@ -1,0 +1,26 @@
+{
+  "name": "las-website-retrospective",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Chronological design and information-architecture retrospective of the University of Illinois College of LAS website (2000–present)",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "archive:fetch": "node scripts/fetch-snapshots.mjs",
+    "archive:capture": "node scripts/capture-screenshots.mjs",
+    "archive:inspect-nav": "node scripts/inspect-nav.mjs",
+    "archive:build-data": "node scripts/build-dataset.mjs"
+  },
+  "dependencies": {
+    "astro": "^5.7.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "cheerio": "^1.0.0",
+    "playwright-core": "^1.52.0",
+    "sharp": "^0.34.1",
+    "typescript": "^5.8.2"
+  }
+}

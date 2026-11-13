@@ -1,0 +1,1121 @@
+---
+import type { AnnualSnapshot, DesignIteration, NavigationZoneType } from '../types/retrospective';
+import { withBase } from '../utils/retrospective-helpers';
+
+interface Props {
+  iteration: DesignIteration;
+  snapshots: AnnualSnapshot[];
+  eagerImage?: boolean;
+}
+
+const { iteration, snapshots, eagerImage = false } = Astro.props;
+
+const debutSnapshot = snapshots.find((s) => s.year === iteration.debutYear) || snapshots[0];
+
+const ZONE_TYPE_LABELS: Record<NavigationZoneType, string> = {
+  primary: 'Primary Navigation',
+  'audience-bar': 'Audience Bar',
+  'utility-header': 'Utility Header',
+  sidebar: 'Sidebar Wayfinding',
+};
+
+const clientSnapshots = snapshots.map((s) => ({
+  year: s.year,
+  isMajorRefresh: s.isMajorRefresh,
+  canonicalHost: s.canonicalHost,
+  captureDate: s.captureDate,
+  waybackUrl: s.waybackUrl,
+  liveUrl: s.liveUrl || null,
+  foldSrc: withBase(s.foldImage),
+  fullSrc: withBase(s.fullImage),
+  archivalNote: s.archivalNote || '',
+  yearHighlight: s.yearHighlight,
+}));
+---
+
+<article
+  id={iteration.id}
+  class="iteration-card"
+  data-iteration-card
+  data-snapshots={JSON.stringify(clientSnapshots)}
+>
+  {
+    iteration.urlEpochTransition && (
+      <div class="epoch-transition-banner" role="note">
+        <span class="epoch-badge">URL Epoch Transition · {iteration.urlEpochTransition.year}</span>
+        <span class="epoch-hosts mono">
+          {iteration.urlEpochTransition.fromHost} → <strong>{iteration.urlEpochTransition.toHost}</strong>
+        </span>
+        <span class="epoch-transition-note">{iteration.urlEpochTransition.note}</span>
+      </div>
+    )
+  }
+
+  <div class="iteration-header">
+    <div class="iteration-title-row">
+      <div class="refresh-badge-group">
+        <span class="refresh-year-pill" title="Major Visual Layout Refresh Year">
+          Major Refresh · {iteration.debutYear}
+        </span>
+        <span class="span-pill">Iteration {iteration.number} ({iteration.yearSpanLabel})</span>
+        <span class="host-pill mono">{iteration.canonicalHost}</span>
+      </div>
+      <span class="tech-signature">{iteration.techSignature}</span>
+    </div>
+
+    <h3 class="iteration-title">{iteration.title}</h3>
+    <p class="iteration-tagline">{iteration.eraTagline}</p>
+  </div>
+
+  <div class="iteration-grid">
+    <!-- Left Column: Browser Screencap + Annual Scrubber -->
+    <div class="showcase-col">
+      <div class="browser-frame">
+        <div class="browser-chrome">
+          <div class="browser-dots" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="browser-address mono" data-scrubber-url>
+            {debutSnapshot.canonicalHost} · {debutSnapshot.captureDate}
+          </div>
+          <div class="browser-actions">
+            <a
+              href={debutSnapshot.waybackUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="chrome-link"
+              data-scrubber-wayback
+              title="Verify archived capture on Internet Archive Wayback Machine"
+            >
+              Wayback ↗
+            </a>
+            <a
+              href={debutSnapshot.liveUrl || '#'}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="chrome-link chrome-link-live"
+              data-scrubber-live
+              hidden={!debutSnapshot.liveUrl}
+            >
+              Live ↗
+            </a>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          class="screencap-trigger"
+          data-open-lightbox
+          data-year={debutSnapshot.year}
+          aria-label={`Open full-page homepage screencap for ${debutSnapshot.year}`}
+        >
+          <img
+            src={withBase(debutSnapshot.foldImage)}
+            alt={`College of LAS homepage desktop screencap (${debutSnapshot.year}) on ${debutSnapshot.canonicalHost}`}
+            width="1280"
+            height="900"
+            loading={eagerImage ? 'eager' : 'lazy'}
+            decoding="async"
+            data-scrubber-img
+          />
+          <span class="screencap-overlay-hint">Inspect Full-Page Screencap ({debutSnapshot.year}) ⤢</span>
+        </button>
+      </div>
+
+      {
+        snapshots.length > 1 && (
+          <div class="annual-scrubber" role="group" aria-label={`Annual snapshots within ${iteration.yearSpanLabel}`}>
+            <div class="scrubber-top">
+              <span class="scrubber-label">
+                Scrub Annual Captures ({snapshots[0].year}–{snapshots[snapshots.length - 1].year}):
+              </span>
+              <div class="scrubber-step-btns">
+                <button type="button" class="step-btn" data-step-dir="-1" aria-label="Previous year in era">
+                  ‹ Prev
+                </button>
+                <button type="button" class="step-btn" data-step-dir="1" aria-label="Next year in era">
+                  Next ›
+                </button>
+              </div>
+            </div>
+            <div class="year-pills">
+              {snapshots.map((snap, idx) => (
+                <button
+                  type="button"
+                  class:list={['year-pill', { 'is-selected': idx === 0, 'is-refresh': snap.isMajorRefresh }]}
+                  data-select-year={snap.year}
+                  aria-pressed={idx === 0 ? 'true' : 'false'}
+                >
+                  {snap.year}
+                  {snap.isMajorRefresh && <span class="sr-only"> (Major Refresh debut)</span>}
+                </button>
+              ))}
+            </div>
+          </div>
+        )
+      }
+
+      <div class="snapshot-caption-box">
+        <p class="snapshot-highlight" data-scrubber-highlight>
+          <strong>{debutSnapshot.year}:</strong> {debutSnapshot.yearHighlight}
+        </p>
+        <p
+          class="archival-note"
+          data-scrubber-archival
+          hidden={!debutSnapshot.archivalNote}
+        >
+          Archival note: {debutSnapshot.archivalNote}
+        </p>
+      </div>
+
+      <p class="visual-summary">
+        <strong>Visual Layout:</strong> {iteration.visualSummary}
+      </p>
+    </div>
+
+    <!-- Right Column: Multi-Zone Navigation & UX/IA Critique -->
+    <div class="analysis-col">
+      <div class="metrics-strip" aria-label="Navigation architecture metrics">
+        <div class="metric-item">
+          <span class="metric-val">{iteration.metrics.zoneCount}</span>
+          <span class="metric-lbl">Nav Zones</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-val">{iteration.metrics.level1Count}</span>
+          <span class="metric-lbl">Level-1 Links</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-val">{iteration.metrics.level2Count}</span>
+          <span class="metric-lbl">Level-2 Sublinks</span>
+        </div>
+        <div class="metric-item metric-item-highlight">
+          <span class="metric-val">{iteration.metrics.audienceGatedPercentage}%</span>
+          <span class="metric-lbl">Audience-Gated</span>
+        </div>
+      </div>
+
+      <div class="paradigm-bar-wrap" aria-label="Navigation item paradigm distribution">
+        <div class="paradigm-bar-header">
+          <span>Item Paradigm Mix ({iteration.metrics.totalItems} total links):</span>
+          <span class="paradigm-legend-inline">
+            <span>Topic {iteration.metrics.paradigmPercentages.topic}%</span> ·
+            <span>Task {iteration.metrics.paradigmPercentages.task}%</span> ·
+            <span>Audience {iteration.metrics.paradigmPercentages.audience}%</span>
+            {iteration.metrics.paradigmPercentages.hybrid > 0 && (
+              <> · <span>Hybrid {iteration.metrics.paradigmPercentages.hybrid}%</span></>
+            )}
+          </span>
+        </div>
+        <div class="paradigm-bar" role="img" aria-label={`Topic ${iteration.metrics.paradigmPercentages.topic}%, Task ${iteration.metrics.paradigmPercentages.task}%, Audience ${iteration.metrics.paradigmPercentages.audience}%`}>
+          {iteration.metrics.paradigmPercentages.topic > 0 && (
+            <span class="pseg pseg-topic" style={`width:${iteration.metrics.paradigmPercentages.topic}%`} />
+          )}
+          {iteration.metrics.paradigmPercentages.task > 0 && (
+            <span class="pseg pseg-task" style={`width:${iteration.metrics.paradigmPercentages.task}%`} />
+          )}
+          {iteration.metrics.paradigmPercentages.audience > 0 && (
+            <span class="pseg pseg-audience" style={`width:${iteration.metrics.paradigmPercentages.audience}%`} />
+          )}
+          {iteration.metrics.paradigmPercentages.hybrid > 0 && (
+            <span class="pseg pseg-hybrid" style={`width:${iteration.metrics.paradigmPercentages.hybrid}%`} />
+          )}
+        </div>
+      </div>
+
+      <div class="ia-editorial">
+        <h4 class="ia-headline">{iteration.iaHeadline}</h4>
+        {iteration.iaAnalysis.map((para) => <p class="ia-para">{para}</p>)}
+
+        <div class="audience-callout">
+          <div class="callout-title">Audience &amp; Persona Navigation Lens</div>
+          <p>{iteration.audienceNavCommentary}</p>
+        </div>
+      </div>
+
+      <div class="zones-section">
+        <div class="zones-header">
+          <h4 class="zones-heading">Main Navigation Structure ({iteration.debutYear} Debut Anchor)</h4>
+          {
+            iteration.metrics.maxDepth === 2 && (
+              <button type="button" class="toggle-all-btn" data-toggle-submenus>
+                Expand all submenus
+              </button>
+            )
+          }
+        </div>
+
+        <div class="zones-stack">
+          {
+            iteration.zones.map((zone) => (
+              <section class:list={['zone-card', `zone-type-${zone.zoneType}`]} aria-label={zone.name}>
+                <div class="zone-card-head">
+                  <div>
+                    <span class="zone-type-kicker">{ZONE_TYPE_LABELS[zone.zoneType]}</span>
+                    <h5 class="zone-name">{zone.name}</h5>
+                  </div>
+                  <span class={`paradigm-badge paradigm-${zone.dominantParadigm}`}>
+                    {zone.dominantParadigm} zone
+                  </span>
+                </div>
+                <p class="zone-placement">
+                  <strong>Placement:</strong> {zone.placement} — {zone.description}
+                </p>
+
+                <ul class="nav-l1-list">
+                  {zone.items.map((navItem) => (
+                    <li class="nav-l1-item">
+                      {navItem.children && navItem.children.length > 0 ? (
+                        <details class="nav-disclosure">
+                          <summary class="nav-l1-summary">
+                            <span class="nav-item-label">
+                              {navItem.groupHeading && (
+                                <span class="group-prefix">{navItem.groupHeading}:</span>
+                              )}
+                              <strong>{navItem.label}</strong>
+                              <span class="sub-count">({navItem.children.length})</span>
+                            </span>
+                            <span class={`paradigm-badge paradigm-${navItem.paradigm}`}>
+                              {navItem.paradigm}
+                            </span>
+                          </summary>
+                          <ul class="nav-l2-list">
+                            {navItem.children.map((child) => (
+                              <li class="nav-l2-item">
+                                <span class="nav-l2-label">{child.label}</span>
+                                <span class={`paradigm-badge paradigm-${child.paradigm}`}>
+                                  {child.paradigm}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </details>
+                      ) : (
+                        <div class="nav-l1-leaf">
+                          <span class="nav-item-label">
+                            {navItem.groupHeading && (
+                              <span class="group-prefix">{navItem.groupHeading}:</span>
+                            )}
+                            <span>{navItem.label}</span>
+                          </span>
+                          <span class={`paradigm-badge paradigm-${navItem.paradigm}`}>
+                            {navItem.paradigm}
+                          </span>
+                        </div>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))
+          }
+
+          {
+            iteration.footerDisplaced && (
+              <section class="zone-card zone-footer-displaced" aria-label="Footer Displacement Exception">
+                <div class="zone-card-head">
+                  <div>
+                    <span class="zone-type-kicker kicker-displaced">
+                      Footer Displacement · Former {iteration.footerDisplaced.formerZone}
+                    </span>
+                    <h5 class="zone-name">Footer Menu: “{iteration.footerDisplaced.heading}”</h5>
+                  </div>
+                  <span class="paradigm-badge paradigm-audience">displaced persona</span>
+                </div>
+                <p class="zone-placement">{iteration.footerDisplaced.rationale}</p>
+                <div class="displaced-chips">
+                  {iteration.footerDisplaced.items.map((fi) => (
+                    <span class="displaced-chip">{fi.label}</span>
+                  ))}
+                </div>
+              </section>
+            )
+          }
+        </div>
+      </div>
+
+      {
+        iteration.intraEraDrift.length > 0 && (
+          <div class="drift-box">
+            <div class="drift-title">Intra-Era Navigation Drift</div>
+            <ul class="drift-list">
+              {iteration.intraEraDrift.map((d) => (
+                <li>
+                  <strong>{d.years}:</strong> {d.summary}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+    </div>
+  </div>
+</article>
+
+<script>
+  interface ClientSnapshot {
+    year: number;
+    isMajorRefresh: boolean;
+    canonicalHost: string;
+    captureDate: string;
+    waybackUrl: string;
+    liveUrl: string | null;
+    foldSrc: string;
+    fullSrc: string;
+    archivalNote: string;
+    yearHighlight: string;
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-iteration-card]').forEach((card) => {
+    const raw = card.dataset.snapshots;
+    if (!raw) return;
+    const snaps: ClientSnapshot[] = JSON.parse(raw);
+    let activeIdx = 0;
+
+    const imgEl = card.querySelector<HTMLImageElement>('[data-scrubber-img]');
+    const urlEl = card.querySelector<HTMLElement>('[data-scrubber-url]');
+    const wbEl = card.querySelector<HTMLAnchorElement>('[data-scrubber-wayback]');
+    const liveEl = card.querySelector<HTMLAnchorElement>('[data-scrubber-live]');
+    const hlEl = card.querySelector<HTMLElement>('[data-scrubber-highlight]');
+    const archEl = card.querySelector<HTMLElement>('[data-scrubber-archival]');
+    const lightboxBtn = card.querySelector<HTMLButtonElement>('[data-open-lightbox]');
+    const overlayHint = card.querySelector<HTMLElement>('.screencap-overlay-hint');
+    const yearBtns = Array.from(card.querySelectorAll<HTMLButtonElement>('[data-select-year]'));
+
+    function setSnap(idx: number) {
+      activeIdx = (idx + snaps.length) % snaps.length;
+      const snap = snaps[activeIdx];
+      if (imgEl) {
+        imgEl.src = snap.foldSrc;
+        imgEl.alt = `College of LAS homepage desktop screencap (${snap.year}) on ${snap.canonicalHost}`;
+      }
+      if (urlEl) {
+        urlEl.textContent = `${snap.canonicalHost} · ${snap.captureDate}`;
+      }
+      if (wbEl) {
+        wbEl.href = snap.waybackUrl;
+      }
+      if (liveEl) {
+        if (snap.liveUrl) {
+          liveEl.href = snap.liveUrl;
+          liveEl.hidden = false;
+        } else {
+          liveEl.hidden = true;
+        }
+      }
+      if (hlEl) {
+        hlEl.innerHTML = '';
+        const strong = document.createElement('strong');
+        strong.textContent = `${snap.year}: `;
+        hlEl.append(strong, document.createTextNode(snap.yearHighlight));
+      }
+      if (archEl) {
+        if (snap.archivalNote) {
+          archEl.textContent = `Archival note: ${snap.archivalNote}`;
+          archEl.hidden = false;
+        } else {
+          archEl.hidden = true;
+        }
+      }
+      if (lightboxBtn) {
+        lightboxBtn.dataset.year = String(snap.year);
+        lightboxBtn.setAttribute('aria-label', `Open full-page homepage screencap for ${snap.year}`);
+      }
+      if (overlayHint) {
+        overlayHint.textContent = `Inspect Full-Page Screencap (${snap.year}) ⤢`;
+      }
+      yearBtns.forEach((btn, i) => {
+        const selected = i === activeIdx;
+        btn.classList.toggle('is-selected', selected);
+        btn.setAttribute('aria-pressed', selected ? 'true' : 'false');
+      });
+    }
+
+    yearBtns.forEach((btn, idx) => {
+      btn.addEventListener('click', () => setSnap(idx));
+    });
+
+    card.querySelectorAll<HTMLButtonElement>('[data-step-dir]').forEach((stepBtn) => {
+      stepBtn.addEventListener('click', () => {
+        const dir = Number(stepBtn.dataset.stepDir || '1');
+        setSnap(activeIdx + dir);
+      });
+    });
+
+    lightboxBtn?.addEventListener('click', () => {
+      const yr = Number(lightboxBtn.dataset.year || snaps[0].year);
+      window.dispatchEvent(new CustomEvent('open-screencap-lightbox', { detail: { year: yr } }));
+    });
+
+    const toggleSubBtn = card.querySelector<HTMLButtonElement>('[data-toggle-submenus]');
+    toggleSubBtn?.addEventListener('click', () => {
+      const disclosures = Array.from(card.querySelectorAll<HTMLDetailsElement>('details.nav-disclosure'));
+      const anyClosed = disclosures.some((d) => !d.open);
+      disclosures.forEach((d) => {
+        d.open = anyClosed;
+      });
+      toggleSubBtn.textContent = anyClosed ? 'Collapse all submenus' : 'Expand all submenus';
+    });
+  });
+</script>
+
+<style>
+  .iteration-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    scroll-margin-top: 4.5rem;
+  }
+
+  .epoch-transition-banner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem 1rem;
+    background: var(--illini-orange-tint);
+    border: 1px solid #f5c3a6;
+    border-left: 4px solid var(--illini-orange);
+    border-radius: var(--radius-md);
+    padding: 0.7rem 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  .epoch-badge {
+    font-size: 0.72rem;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--illini-orange-ink);
+  }
+
+  .epoch-hosts {
+    color: var(--illini-navy);
+    font-size: 0.85rem;
+  }
+
+  .epoch-transition-note {
+    color: var(--ink-body);
+  }
+
+  .iteration-header {
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .iteration-title-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.65rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .refresh-badge-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .refresh-year-pill {
+    display: inline-flex;
+    align-items: center;
+    background: var(--illini-navy);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 750;
+    letter-spacing: 0.03em;
+    padding: 0.26rem 0.72rem;
+    border-radius: 999px;
+    border-left: 4px solid var(--illini-orange);
+  }
+
+  .span-pill {
+    font-size: 0.78rem;
+    font-weight: 650;
+    color: var(--ink-body);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-light);
+    padding: 0.22rem 0.65rem;
+    border-radius: 999px;
+  }
+
+  .host-pill {
+    font-size: 0.77rem;
+    font-weight: 600;
+    color: var(--illini-navy);
+    background: var(--illini-navy-tint);
+    border: 1px solid #cdd8e7;
+    padding: 0.22rem 0.65rem;
+    border-radius: 999px;
+  }
+
+  .tech-signature {
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+  }
+
+  .iteration-title {
+    margin: 0 0 0.25rem;
+    font-size: clamp(1.35rem, 2.1vw, 1.75rem);
+    color: var(--illini-navy);
+    letter-spacing: -0.015em;
+  }
+
+  .iteration-tagline {
+    margin: 0;
+    font-size: 0.98rem;
+    color: var(--ink-secondary);
+  }
+
+  .iteration-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, 1fr);
+    gap: 1.75rem;
+    align-items: start;
+  }
+
+  /* Browser Showcase */
+  .browser-frame {
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .browser-chrome {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--bg-subtle);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .browser-dots {
+    display: flex;
+    gap: 5px;
+    flex-shrink: 0;
+  }
+
+  .browser-dots span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #c7d0dd;
+  }
+
+  .browser-address {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 5px;
+    padding: 0.18rem 0.55rem;
+    font-size: 0.75rem;
+    color: var(--ink-secondary);
+  }
+
+  .browser-actions {
+    display: flex;
+    gap: 0.4rem;
+    flex-shrink: 0;
+  }
+
+  .chrome-link {
+    font-size: 0.74rem;
+    font-weight: 650;
+    text-decoration: none;
+    padding: 0.18rem 0.5rem;
+    border-radius: 4px;
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    color: var(--illini-navy);
+  }
+
+  .chrome-link:hover {
+    border-color: var(--illini-navy);
+  }
+
+  .screencap-trigger {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: #ffffff;
+    cursor: zoom-in;
+    text-align: left;
+  }
+
+  .screencap-trigger img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1280 / 900;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .screencap-overlay-hint {
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    background: rgba(19, 41, 75, 0.9);
+    color: #ffffff;
+    font-size: 0.76rem;
+    font-weight: 650;
+    padding: 0.35rem 0.7rem;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    transition: background-color 0.15s ease;
+  }
+
+  .screencap-trigger:hover .screencap-overlay-hint {
+    background: var(--illini-navy);
+    outline: 2px solid var(--illini-orange);
+  }
+
+  /* Annual Scrubber */
+  .annual-scrubber {
+    margin-top: 0.85rem;
+    background: var(--bg-page);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 0.7rem 0.85rem;
+  }
+
+  .scrubber-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .scrubber-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--ink-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .scrubber-step-btns {
+    display: flex;
+    gap: 0.35rem;
+  }
+
+  .step-btn {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    padding: 0.16rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--ink-body);
+    cursor: pointer;
+  }
+
+  .step-btn:hover {
+    border-color: var(--illini-navy);
+    color: var(--illini-navy);
+  }
+
+  .year-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .year-pill {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 650;
+    color: var(--ink-body);
+    cursor: pointer;
+  }
+
+  .year-pill.is-refresh {
+    border-bottom: 2px solid var(--illini-orange);
+  }
+
+  .year-pill.is-selected {
+    background: var(--illini-navy);
+    color: #ffffff;
+    border-color: var(--illini-navy);
+  }
+
+  .snapshot-caption-box {
+    margin-top: 0.75rem;
+    padding: 0.7rem 0.9rem;
+    background: var(--bg-page);
+    border-left: 3px solid var(--illini-navy);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+
+  .snapshot-highlight {
+    margin: 0;
+    font-size: 0.86rem;
+    color: var(--ink-body);
+  }
+
+  .archival-note {
+    margin: 0.35rem 0 0;
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+
+  .visual-summary {
+    margin: 0.75rem 0 0;
+    font-size: 0.86rem;
+    color: var(--ink-secondary);
+  }
+
+  /* Right Column Analysis */
+  .metrics-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.6rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .metric-item {
+    background: var(--bg-page);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 0.55rem 0.65rem;
+    text-align: center;
+  }
+
+  .metric-item-highlight {
+    background: var(--illini-orange-tint);
+    border-color: #f3c4a8;
+  }
+
+  .metric-val {
+    display: block;
+    font-size: 1.15rem;
+    font-weight: 750;
+    line-height: 1.15;
+    color: var(--illini-navy);
+  }
+
+  .metric-lbl {
+    display: block;
+    font-size: 0.71rem;
+    font-weight: 600;
+    color: var(--ink-secondary);
+    margin-top: 0.15rem;
+  }
+
+  .paradigm-bar-wrap {
+    margin-bottom: 1.1rem;
+  }
+
+  .paradigm-bar-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    color: var(--ink-secondary);
+    margin-bottom: 0.3rem;
+  }
+
+  .paradigm-bar {
+    display: flex;
+    height: 8px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--bg-muted);
+  }
+
+  .pseg-topic {
+    background: var(--illini-navy);
+  }
+  .pseg-task {
+    background: #1d7a64;
+  }
+  .pseg-audience {
+    background: var(--illini-orange);
+  }
+  .pseg-hybrid {
+    background: #6b4cb0;
+  }
+
+  .ia-headline {
+    margin: 0 0 0.5rem;
+    font-size: 1.02rem;
+    line-height: 1.38;
+    color: var(--illini-navy);
+  }
+
+  .ia-para {
+    margin: 0 0 0.65rem;
+    font-size: 0.9rem;
+    color: var(--ink-body);
+  }
+
+  .audience-callout {
+    background: var(--bg-page);
+    border: 1px solid var(--border-light);
+    border-left: 3px solid var(--illini-orange);
+    border-radius: var(--radius-sm);
+    padding: 0.7rem 0.9rem;
+    margin: 0.85rem 0 1.15rem;
+  }
+
+  .callout-title {
+    font-size: 0.74rem;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--illini-orange-ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .audience-callout p {
+    margin: 0;
+    font-size: 0.86rem;
+    color: var(--ink-body);
+  }
+
+  /* Multi-Zone Navigation Cards */
+  .zones-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .zones-heading {
+    margin: 0;
+    font-size: 0.92rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--illini-navy);
+  }
+
+  .toggle-all-btn {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 0.24rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 650;
+    color: var(--illini-navy);
+    cursor: pointer;
+  }
+
+  .toggle-all-btn:hover {
+    border-color: var(--illini-navy);
+    background: #ffffff;
+  }
+
+  .zones-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .zone-card {
+    background: var(--bg-page);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 0.8rem 0.95rem;
+  }
+
+  .zone-type-audience-bar {
+    border-left: 3px solid var(--illini-orange);
+  }
+
+  .zone-type-primary {
+    border-left: 3px solid var(--illini-navy);
+  }
+
+  .zone-type-utility-header {
+    border-left: 3px solid #1d7a64;
+  }
+
+  .zone-footer-displaced {
+    background: #fafbfc;
+    border-style: dashed;
+    border-color: var(--border-strong);
+  }
+
+  .zone-card-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .zone-type-kicker {
+    display: block;
+    font-size: 0.69rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+  }
+
+  .kicker-displaced {
+    color: var(--illini-orange-ink);
+  }
+
+  .zone-name {
+    margin: 0.05rem 0 0;
+    font-size: 0.94rem;
+    color: var(--illini-navy);
+  }
+
+  .zone-placement {
+    margin: 0 0 0.55rem;
+    font-size: 0.8rem;
+    color: var(--ink-secondary);
+  }
+
+  .nav-l1-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .nav-l1-leaf,
+  .nav-l1-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 0.32rem 0.6rem;
+    font-size: 0.84rem;
+  }
+
+  .nav-l1-summary {
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .nav-l1-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .nav-l1-summary .nav-item-label::before {
+    content: '▸ ';
+    color: var(--illini-orange-ink);
+    font-weight: 700;
+  }
+
+  details[open] > .nav-l1-summary .nav-item-label::before {
+    content: '▾ ';
+  }
+
+  .group-prefix {
+    font-size: 0.74rem;
+    color: var(--ink-muted);
+    margin-right: 0.3rem;
+  }
+
+  .sub-count {
+    font-size: 0.74rem;
+    color: var(--ink-muted);
+    margin-left: 0.25rem;
+  }
+
+  .nav-l2-list {
+    list-style: none;
+    margin: 0.3rem 0 0.2rem 0.85rem;
+    padding: 0 0 0 0.65rem;
+    border-left: 2px solid var(--border-light);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 0.25rem 0.5rem;
+  }
+
+  .nav-l2-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem;
+    background: #ffffff;
+    border: 1px solid #ebeff5;
+    border-radius: 4px;
+    padding: 0.22rem 0.5rem;
+    font-size: 0.78rem;
+  }
+
+  .displaced-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .displaced-chip {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.78rem;
+    color: var(--ink-secondary);
+  }
+
+  .drift-box {
+    margin-top: 0.9rem;
+    padding: 0.75rem 0.9rem;
+    background: var(--bg-page);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+  }
+
+  .drift-title {
+    font-size: 0.74rem;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-secondary);
+    margin-bottom: 0.3rem;
+  }
+
+  .drift-list {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.83rem;
+    color: var(--ink-body);
+  }
+
+  @media (max-width: 1024px) {
+    .iteration-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .iteration-card {
+      padding: 1.15rem;
+    }
+    .metrics-strip {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

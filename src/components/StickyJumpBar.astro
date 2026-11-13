@@ -1,0 +1,161 @@
+---
+import type { DesignIteration } from '../types/retrospective';
+
+interface Props {
+  iterations: DesignIteration[];
+}
+
+const { iterations } = Astro.props;
+---
+
+<nav class="sticky-jumpbar" aria-label="Timeline eras and synthesis sections">
+  <div class="container jumpbar-inner">
+    <div class="jump-group" role="list" aria-label="Major Design Refresh Eras">
+      <span class="jump-label">Major Refreshes:</span>
+      {
+        iterations.map((it) => (
+          <a
+            href={`#${it.id}`}
+            class="jump-chip"
+            data-jump-target={it.id}
+            title={`${it.yearSpanLabel}: ${it.title} (${it.canonicalHost})`}
+          >
+            <span class="jump-year">{it.debutYear}</span>
+            {it.urlEpochTransition && <span class="epoch-dot" aria-label="URL Epoch Transition" title="URL Epoch Transition" />}
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="jump-divider" aria-hidden="true"></div>
+
+    <div class="jump-group jump-synthesis">
+      <a href="#continuity-matrix" class="jump-chip jump-chip-section" data-jump-target="continuity-matrix">
+        Continuity Matrix
+      </a>
+      <a href="#audience-evolution" class="jump-chip jump-chip-section" data-jump-target="audience-evolution">
+        Audience → Recruitment IA
+      </a>
+      <a href="#iteration-diff" class="jump-chip jump-chip-section" data-jump-target="iteration-diff">
+        Compare Eras
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const chips = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-jump-target]'));
+  const targets = chips
+    .map((c) => document.getElementById(c.dataset.jumpTarget || ''))
+    .filter((el): el is HTMLElement => Boolean(el));
+
+  if ('IntersectionObserver' in window && targets.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length > 0) {
+          const activeId = visible[0].target.id;
+          for (const chip of chips) {
+            const isMatch = chip.dataset.jumpTarget === activeId;
+            chip.classList.toggle('is-active', isMatch);
+            if (isMatch) {
+              chip.setAttribute('aria-current', 'true');
+            } else {
+              chip.removeAttribute('aria-current');
+            }
+          }
+        }
+      },
+      { rootMargin: '-18% 0px -68% 0px', threshold: 0 }
+    );
+    targets.forEach((t) => observer.observe(t));
+  }
+</script>
+
+<style>
+  .sticky-jumpbar {
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: 0 1px 4px rgba(19, 41, 75, 0.04);
+  }
+
+  .jumpbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-top: 0.55rem;
+    padding-bottom: 0.55rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .jump-group {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-shrink: 0;
+  }
+
+  .jump-label {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-secondary);
+    margin-right: 0.25rem;
+  }
+
+  .jump-divider {
+    width: 1px;
+    height: 22px;
+    background: var(--border-light);
+    flex-shrink: 0;
+  }
+
+  .jump-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.28rem 0.62rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 650;
+    text-decoration: none;
+    color: var(--ink-body);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-light);
+    transition: background-color 0.14s ease, color 0.14s ease, border-color 0.14s ease;
+    white-space: nowrap;
+  }
+
+  .jump-chip:hover {
+    border-color: var(--illini-navy);
+    color: var(--illini-navy);
+    background: #ffffff;
+  }
+
+  .jump-chip.is-active {
+    background: var(--illini-navy);
+    color: #ffffff;
+    border-color: var(--illini-navy);
+  }
+
+  .jump-chip-section {
+    background: #ffffff;
+  }
+
+  .epoch-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--illini-orange);
+    display: inline-block;
+  }
+</style>
