@@ -8,6 +8,7 @@
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
+    "deploy": "SITE_URL=https://trubach.github.io BASE_URL=/las-website-retrospective npm run build && node scripts/deploy-gh-pages.mjs",
     "archive:fetch": "node scripts/fetch-snapshots.mjs",
     "archive:capture": "node scripts/capture-screenshots.mjs",
     "archive:inspect-nav": "node scripts/inspect-nav.mjs",

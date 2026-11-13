@@ -2,6 +2,8 @@
 
 A dynamic static web application presenting a 27-year visual and information-architecture (IA) retrospective of the University of Illinois **College of Liberal Arts & Sciences** homepage from **2000 to present**.
 
+- **Live GitHub Pages Site**: [https://trubach.github.io/las-website-retrospective/](https://trubach.github.io/las-website-retrospective/)
+
 ## Historical URL Epochs (Oldest → Newest)
 
 1. **`www.las.uiuc.edu`** (2000 – August 2008; mirrored content until 301-redirecting in 2014)
@@ -32,8 +34,11 @@ npm run dev
 # Type-check and build static site into dist/
 npm run build
 
-# Build for a subpath deployment (e.g., /las-retrospective/)
-BASE_URL=/las-retrospective npm run build
+# Build for a subpath deployment (e.g., /las-website-retrospective/)
+BASE_URL=/las-website-retrospective npm run build
+
+# Build and publish static output to the gh-pages branch
+npm run deploy
 
 # Preview production static build locally
 npm run preview
